@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jade Alombro — Portfolio Website
 
-## Getting Started
+Portfolio website for [jadealombro.com](https://jadealombro.com). Built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion.
 
-First, run the development server:
+---
+
+## Project overview
+
+A premium, minimal portfolio website presenting Jade Alombro as a WordPress developer specializing in custom business websites, WooCommerce solutions, and long-term site support.
+
+**Primary visitor flow:** Home → Projects → Contact
+
+---
+
+## Tech stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Animation:** Framer Motion
+- **Forms:** React Hook Form
+- **Sitemap:** next-sitemap
+
+---
+
+## Prerequisites
+
+- Node.js 20+
+- npm 10+
+
+---
+
+## Install
+
+```bash
+git clone https://github.com/YOUR_USERNAME/jade-portfolio.git
+cd jade-portfolio
+npm install
+```
+
+---
+
+## Local development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build
 
-## Learn More
+```bash
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Generate sitemap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The sitemap and robots.txt are generated automatically after build via `next-sitemap`. To generate manually:
 
-## Deploy on Vercel
+```bash
+npm run postbuild
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Output: `public/sitemap.xml` and `public/robots.txt`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Project structure
+
+```
+src/
+├── app/             # Pages (Next.js App Router)
+├── components/
+│   ├── layout/      # Nav, Footer
+│   ├── ui/          # Shared UI primitives
+│   ├── home/        # Homepage sections
+│   ├── projects/    # Project card + grid
+│   └── contact/     # Contact form
+├── data/            # Site content (projects, testimonials, FAQ)
+└── lib/             # Types, metadata helpers
+```
+
+---
+
+## Multi-computer workflow
+
+```bash
+# On computer A — after making changes
+git add .
+git commit -m "your message"
+git push
+
+# On computer B — to continue
+git pull
+npm install   # only if package.json changed
+npm run dev
+```
+
+---
+
+## Deployment
+
+Deployment instructions to be added. Site is intended for deployment to Vercel or similar static/edge hosting.
+
+Recommended steps (Vercel):
+1. Connect the GitHub repository in the Vercel dashboard
+2. Set environment variables if needed
+3. Vercel will auto-deploy on every push to `main`
