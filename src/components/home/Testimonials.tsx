@@ -1,25 +1,52 @@
-import SectionHeading from "@/components/ui/SectionHeading";
+import MotionReveal, { StaggerReveal } from "@/components/ui/MotionReveal";
 import { testimonials } from "@/data/testimonials";
 
 export default function Testimonials() {
   return (
     <section
-      className="section-padding"
-      style={{ backgroundColor: "var(--color-surface)", borderTop: "1px solid var(--color-border)" }}
+      style={{
+        paddingBlock: "clamp(5rem, 10vw, 9rem)",
+        backgroundColor: "var(--color-surface)",
+        borderTop: "1px solid var(--color-border)",
+      }}
     >
       <div className="container-site">
-        <SectionHeading
-          label="Client feedback"
-          heading="What clients say"
-          subheading="A few words from clients I've worked with."
-          align="center"
-        />
+        <MotionReveal>
+          <div style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}>
+            <p
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--color-accent)",
+                marginBottom: "0.875rem",
+              }}
+            >
+              Client feedback
+            </p>
+            <h2
+              style={{
+                fontFamily: "var(--font-display), system-ui, sans-serif",
+                fontSize: "clamp(3rem, 7vw, 6.5rem)",
+                fontWeight: 800,
+                lineHeight: 1.0,
+                letterSpacing: "-0.04em",
+                color: "var(--color-ink)",
+                margin: 0,
+              }}
+            >
+              What clients say
+            </h2>
+          </div>
+        </MotionReveal>
 
-        <div
+        <StaggerReveal
+          stagger={0.12}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 320px), 1fr))",
-            gap: "1.5rem",
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 340px), 1fr))",
+            gap: "1.25rem",
           }}
         >
           {testimonials.map((t, i) => (
@@ -35,14 +62,15 @@ export default function Testimonials() {
             >
               <blockquote
                 style={{
-                  fontFamily: "var(--font-fraunces), Georgia, serif",
-                  fontSize: "1.0625rem",
+                  fontFamily: "var(--font-display), system-ui, sans-serif",
+                  fontSize: "clamp(1rem, 1.5vw, 1.125rem)",
                   lineHeight: 1.6,
                   fontWeight: 400,
                   fontStyle: "italic",
                   color: "var(--color-ink)",
                   margin: "0 0 1.5rem",
                   padding: 0,
+                  letterSpacing: "-0.01em",
                 }}
               >
                 &ldquo;{t.quote}&rdquo;
@@ -60,21 +88,14 @@ export default function Testimonials() {
                   {t.author}
                 </p>
                 {(t.role || t.company) && (
-                  <p
-                    style={{
-                      fontSize: "0.8125rem",
-                      color: "var(--color-muted)",
-                      margin: 0,
-                      maxWidth: "none",
-                    }}
-                  >
+                  <p style={{ fontSize: "0.8125rem", color: "var(--color-muted)", margin: 0, maxWidth: "none" }}>
                     {[t.role, t.company].filter(Boolean).join(", ")}
                   </p>
                 )}
               </figcaption>
             </figure>
           ))}
-        </div>
+        </StaggerReveal>
       </div>
     </section>
   );

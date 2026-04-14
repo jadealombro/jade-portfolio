@@ -1,4 +1,4 @@
-import SectionHeading from "@/components/ui/SectionHeading";
+import MotionReveal, { StaggerReveal } from "@/components/ui/MotionReveal";
 
 const standards = [
   {
@@ -26,40 +26,91 @@ const standards = [
 export default function QualityStandards() {
   return (
     <section
-      className="section-padding"
-      style={{ backgroundColor: "var(--color-surface)", borderTop: "1px solid var(--color-border)" }}
+      style={{
+        paddingBlock: "clamp(5rem, 10vw, 9rem)",
+        backgroundColor: "var(--color-surface)",
+        borderTop: "1px solid var(--color-border)",
+      }}
     >
       <div className="container-site">
-        <SectionHeading
-          label="Standards"
-          heading="Built with quality in mind"
-          subheading="Every project is approached with attention to clean implementation, maintainable structure, performance, and usability. I aim to create websites that not only look professional but also work well over time."
-        />
+        <MotionReveal>
+          <div style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}>
+            <p
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--color-accent)",
+                marginBottom: "0.875rem",
+              }}
+            >
+              Standards
+            </p>
+            <h2
+              style={{
+                fontFamily: "var(--font-display), system-ui, sans-serif",
+                fontSize: "clamp(3rem, 7vw, 6.5rem)",
+                fontWeight: 800,
+                lineHeight: 1.0,
+                letterSpacing: "-0.04em",
+                color: "var(--color-ink)",
+                margin: "0 0 1.25rem",
+              }}
+            >
+              Built with quality in mind
+            </h2>
+            <p
+              style={{
+                fontSize: "clamp(1rem, 1.5vw, 1.125rem)",
+                lineHeight: 1.65,
+                color: "var(--color-ink-secondary)",
+                margin: 0,
+                maxWidth: "52ch",
+              }}
+            >
+              Every project is approached with attention to clean implementation, maintainable structure, performance, and usability.
+            </p>
+          </div>
+        </MotionReveal>
 
-        <div
+        <StaggerReveal
+          stagger={0.08}
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 260px), 1fr))",
-            gap: "1.5rem",
+            gap: "1px",
+            backgroundColor: "var(--color-border)",
+            border: "1px solid var(--color-border)",
+            borderRadius: "var(--radius-md)",
+            overflow: "hidden",
           }}
         >
           {standards.map((s) => (
             <div
               key={s.title}
               style={{
-                padding: "1.5rem",
+                padding: "1.75rem",
                 backgroundColor: "var(--color-background)",
-                border: "1px solid var(--color-border)",
-                borderRadius: "var(--radius-md)",
               }}
             >
+              <div
+                style={{
+                  width: "24px",
+                  height: "2px",
+                  backgroundColor: "var(--color-accent)",
+                  marginBottom: "1.125rem",
+                }}
+              />
               <h3
                 style={{
-                  fontSize: "0.9375rem",
-                  fontWeight: 600,
+                  fontFamily: "var(--font-display), system-ui, sans-serif",
+                  fontSize: "1.125rem",
+                  fontWeight: 700,
                   color: "var(--color-ink)",
                   margin: "0 0 0.5rem",
-                  lineHeight: 1.35,
+                  lineHeight: 1.3,
+                  letterSpacing: "-0.015em",
                 }}
               >
                 {s.title}
@@ -77,7 +128,7 @@ export default function QualityStandards() {
               </p>
             </div>
           ))}
-        </div>
+        </StaggerReveal>
       </div>
     </section>
   );

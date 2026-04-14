@@ -25,7 +25,7 @@ export default function ProjectsPage() {
           </p>
           <h1
             style={{
-              fontFamily: "var(--font-fraunces), Georgia, serif",
+              fontFamily: "var(--font-display), system-ui, sans-serif",
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
               fontWeight: 600,
               lineHeight: 1.15,

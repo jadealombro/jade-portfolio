@@ -41,7 +41,7 @@ export default function Footer() {
             <Link
               href="/"
               style={{
-                fontFamily: "var(--font-fraunces), Georgia, serif",
+                fontFamily: "var(--font-display), system-ui, sans-serif",
                 fontSize: "1.125rem",
                 fontWeight: 600,
                 color: "var(--color-ink)",

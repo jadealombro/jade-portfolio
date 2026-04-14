@@ -6,6 +6,8 @@ interface SectionHeadingProps {
   subheading?: string;
   align?: "left" | "center";
   headingTag?: "h1" | "h2" | "h3";
+  /** "display" = antigravity-scale (5–7rem). "section" = standard (2–3rem). */
+  size?: "display" | "section";
 }
 
 export default function SectionHeading({
@@ -14,12 +16,15 @@ export default function SectionHeading({
   subheading,
   align = "left",
   headingTag: Tag = "h2",
+  size = "section",
 }: SectionHeadingProps) {
+  const isDisplay = size === "display";
+
   const containerStyle: CSSProperties = {
     textAlign: align,
-    maxWidth: align === "center" ? "640px" : undefined,
+    maxWidth: align === "center" ? "720px" : undefined,
     marginInline: align === "center" ? "auto" : undefined,
-    marginBottom: "3rem",
+    marginBottom: isDisplay ? "clamp(2rem, 4vw, 4rem)" : "3rem",
   };
 
   const labelStyle: CSSProperties = {
@@ -29,25 +34,35 @@ export default function SectionHeading({
     letterSpacing: "0.1em",
     textTransform: "uppercase",
     color: "var(--color-accent)",
-    marginBottom: "0.75rem",
+    marginBottom: isDisplay ? "1.25rem" : "0.75rem",
   };
 
-  const headingStyle: CSSProperties = {
-    fontFamily: "var(--font-fraunces), Georgia, serif",
-    fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
-    fontWeight: 600,
-    lineHeight: 1.2,
-    letterSpacing: "-0.02em",
-    color: "var(--color-ink)",
-    margin: "0 0 1rem",
-  };
+  const headingStyle: CSSProperties = isDisplay
+    ? {
+        fontFamily: "var(--font-display), system-ui, sans-serif",
+        fontSize: "clamp(3rem, 7vw, 6.5rem)",
+        fontWeight: 800,
+        lineHeight: 1.0,
+        letterSpacing: "-0.04em",
+        color: "var(--color-ink)",
+        margin: subheading ? "0 0 1.5rem" : "0",
+      }
+    : {
+        fontFamily: "var(--font-display), system-ui, sans-serif",
+        fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
+        fontWeight: 700,
+        lineHeight: 1.15,
+        letterSpacing: "-0.025em",
+        color: "var(--color-ink)",
+        margin: subheading ? "0 0 1rem" : "0",
+      };
 
   const subheadingStyle: CSSProperties = {
-    fontSize: "1.0625rem",
+    fontSize: isDisplay ? "clamp(1rem, 1.5vw, 1.125rem)" : "1.0625rem",
     lineHeight: 1.65,
     color: "var(--color-ink-secondary)",
     margin: 0,
-    maxWidth: align === "center" ? "none" : "56ch",
+    maxWidth: align === "center" ? "none" : isDisplay ? "52ch" : "56ch",
   };
 
   return (

@@ -1,32 +1,43 @@
+import MotionReveal from "@/components/ui/MotionReveal";
+
 export default function Intro() {
   return (
-    <section style={{ paddingBlock: "5rem 4rem", borderTop: "1px solid var(--color-border)" }}>
+    <section
+      style={{
+        paddingBlock: "clamp(5rem, 10vw, 9rem)",
+        borderTop: "1px solid var(--color-border)",
+      }}
+    >
       <div className="container-site">
-        <div style={{ maxWidth: "700px" }}>
+        <MotionReveal>
           <p
             style={{
-              fontFamily: "var(--font-fraunces), Georgia, serif",
-              fontSize: "clamp(1.25rem, 2.5vw, 1.625rem)",
-              lineHeight: 1.55,
-              fontWeight: 400,
+              fontFamily: "var(--font-display), system-ui, sans-serif",
+              fontSize: "clamp(1.625rem, 3.5vw, 2.625rem)",
+              lineHeight: 1.35,
+              fontWeight: 500,
               color: "var(--color-ink)",
-              margin: "0 0 1.25rem",
-              letterSpacing: "-0.01em",
+              margin: "0 0 1.5rem",
+              letterSpacing: "-0.025em",
+              maxWidth: "820px",
             }}
           >
             I work with businesses that need a website built with more care, flexibility, and technical thought than a generic setup can offer.
           </p>
+        </MotionReveal>
+        <MotionReveal delay={0.15}>
           <p
             style={{
-              fontSize: "1.0625rem",
-              lineHeight: 1.65,
+              fontSize: "clamp(1rem, 1.5vw, 1.125rem)",
+              lineHeight: 1.7,
               color: "var(--color-ink-secondary)",
               margin: 0,
+              maxWidth: "52ch",
             }}
           >
-            My focus is on creating websites that support real business goals, feel polished and professional, and remain practical to manage over time. WordPress is my specialty — but I can also work beyond WordPress when a project calls for a broader solution.
+            WordPress is my specialty — but I can also work beyond WordPress when a project calls for a broader solution.
           </p>
-        </div>
+        </MotionReveal>
       </div>
     </section>
   );

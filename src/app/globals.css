@@ -15,9 +15,8 @@
   --color-accent-light: #EEF3F0;
   --color-accent-hover: #2E4438;
 
-  /* Typography */
+  /* Typography — --font-display is set by next/font (Bricolage Grotesque) */
   --font-sans:    var(--font-inter);
-  --font-display: var(--font-fraunces);
 
   /* Spacing scale additions */
   --spacing-section: 6rem;
@@ -55,7 +54,7 @@ body {
 
 /* ── Typography utilities ─────────────────────────────────────── */
 .font-display {
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-display), system-ui, sans-serif;
 }
 
 /* ── Focus ring ───────────────────────────────────────────────── */

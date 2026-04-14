@@ -1,93 +1,114 @@
-import SectionHeading from "@/components/ui/SectionHeading";
+import MotionReveal, { StaggerReveal } from "@/components/ui/MotionReveal";
 
 const traits = [
   {
-    title: "Collaborative and clear",
+    title: "Collaborative\nand clear",
     description:
-      "I keep you informed at each stage, ask the right questions before making assumptions, and make sure you always know where the project stands.",
+      "You'll always know where the project stands. I ask the right questions before making assumptions.",
   },
   {
-    title: "Thoughtful and detail-oriented",
+    title: "Thoughtful\nand detail-oriented",
     description:
-      "I pay attention to the details that matter — not just visuals, but structure, performance, usability, and the way the site holds up over time.",
+      "Structure, performance, usability — the details that make a site work well over time.",
   },
   {
-    title: "Practical and business-minded",
+    title: "Practical\nand business-minded",
     description:
-      "I think about how the site serves the business. The goal isn't just a polished site — it's something that supports real operations and real goals.",
+      "I think about how the site serves the business, not just how it looks on a screen.",
   },
   {
-    title: "Reliable and responsive",
+    title: "Reliable\nand responsive",
     description:
-      "I take the work seriously, communicate honestly, and follow through on what I commit to. If something changes, I'll tell you.",
+      "I follow through on what I commit to. If something changes, I'll say so.",
   },
 ];
 
 export default function HowJadeWorks() {
   return (
-    <section className="section-padding" style={{ borderTop: "1px solid var(--color-border)" }}>
+    <section
+      style={{
+        paddingBlock: "clamp(5rem, 10vw, 9rem)",
+        borderTop: "1px solid var(--color-border)",
+      }}
+    >
       <div className="container-site">
-        <div style={{ display: "grid", gap: "3rem", gridTemplateColumns: "1fr" }} className="how-grid">
-          <div>
-            <SectionHeading
-              label="Working style"
-              heading="How I work"
-              subheading="I bring a mix of technical depth, practical thinking, and clear communication to each project. My goal is not just to deliver a polished website — but to create something that serves the business well and supports the people who need to use it."
-            />
+        <MotionReveal>
+          <div style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}>
+            <p
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--color-accent)",
+                marginBottom: "0.875rem",
+              }}
+            >
+              Working style
+            </p>
+            <h2
+              style={{
+                fontFamily: "var(--font-display), system-ui, sans-serif",
+                fontSize: "clamp(3rem, 7vw, 6.5rem)",
+                fontWeight: 800,
+                lineHeight: 1.0,
+                letterSpacing: "-0.04em",
+                color: "var(--color-ink)",
+                margin: 0,
+              }}
+            >
+              How I work
+            </h2>
           </div>
+        </MotionReveal>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 260px), 1fr))",
-              gap: "2rem",
-            }}
-          >
-            {traits.map((trait) => (
-              <div key={trait.title}>
-                <div
-                  style={{
-                    width: "32px",
-                    height: "2px",
-                    backgroundColor: "var(--color-accent)",
-                    marginBottom: "1rem",
-                  }}
-                />
-                <h3
-                  style={{
-                    fontFamily: "var(--font-fraunces), Georgia, serif",
-                    fontSize: "1.125rem",
-                    fontWeight: 600,
-                    color: "var(--color-ink)",
-                    margin: "0 0 0.625rem",
-                    lineHeight: 1.3,
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  {trait.title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: "0.9375rem",
-                    lineHeight: 1.65,
-                    color: "var(--color-ink-secondary)",
-                    margin: 0,
-                    maxWidth: "none",
-                  }}
-                >
-                  {trait.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <StaggerReveal
+          stagger={0.1}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 260px), 1fr))",
+            gap: "clamp(1.5rem, 3vw, 2.5rem)",
+          }}
+        >
+          {traits.map((trait) => (
+            <div key={trait.title}>
+              <div
+                style={{
+                  width: "28px",
+                  height: "2px",
+                  backgroundColor: "var(--color-accent)",
+                  marginBottom: "1.25rem",
+                }}
+              />
+              <h3
+                style={{
+                  fontFamily: "var(--font-display), system-ui, sans-serif",
+                  fontSize: "clamp(1.25rem, 2vw, 1.625rem)",
+                  fontWeight: 700,
+                  color: "var(--color-ink)",
+                  margin: "0 0 0.875rem",
+                  lineHeight: 1.2,
+                  letterSpacing: "-0.02em",
+                  whiteSpace: "pre-line",
+                }}
+              >
+                {trait.title}
+              </h3>
+              <p
+                style={{
+                  fontSize: "0.9375rem",
+                  lineHeight: 1.65,
+                  color: "var(--color-ink-secondary)",
+                  margin: 0,
+                  maxWidth: "none",
+                }}
+              >
+                {trait.description}
+              </p>
+            </div>
+          ))}
+        </StaggerReveal>
       </div>
-
-      <style>{`
-        @media (min-width: 900px) {
-          .how-grid { grid-template-columns: 1fr 2fr !important; align-items: start; }
-        }
-      `}</style>
     </section>
   );
 }

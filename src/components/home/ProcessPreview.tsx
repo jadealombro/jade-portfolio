@@ -1,5 +1,5 @@
 import Link from "next/link";
-import SectionHeading from "@/components/ui/SectionHeading";
+import MotionReveal from "@/components/ui/MotionReveal";
 
 const steps = [
   { number: "01", label: "Discovery" },
@@ -13,94 +13,144 @@ const steps = [
 
 export default function ProcessPreview() {
   return (
-    <section className="section-padding" style={{ borderTop: "1px solid var(--color-border)" }}>
+    <section
+      style={{
+        paddingBlock: "clamp(5rem, 10vw, 9rem)",
+        borderTop: "1px solid var(--color-border)",
+      }}
+    >
       <div className="container-site">
-        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem", marginBottom: "3rem" }}>
-          <SectionHeading
-            label="How it works"
-            heading="A clear process from planning to launch"
-            subheading="Good work comes from a thoughtful process. I keep projects organized, collaborative, and focused on what matters most."
-          />
-          <Link
-            href="/process"
+        <MotionReveal>
+          <div
             style={{
-              fontSize: "0.875rem",
-              fontWeight: 500,
-              color: "var(--color-ink)",
-              textDecoration: "none",
-              borderBottom: "1px solid var(--color-ink)",
-              paddingBottom: "2px",
-              whiteSpace: "nowrap",
-              alignSelf: "flex-start",
-              marginTop: "0.5rem",
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: "1.5rem",
+              marginBottom: "clamp(2.5rem, 5vw, 4rem)",
             }}
           >
-            See the full process →
-          </Link>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            gap: "0",
-            overflowX: "auto",
-            paddingBottom: "0.5rem",
-          }}
-        >
-          {steps.map((step, i) => (
-            <div
-              key={step.number}
-              style={{
-                flex: "0 0 auto",
-                minWidth: "140px",
-                padding: "1.5rem 1.25rem",
-                borderLeft: "1px solid var(--color-border)",
-                borderTop: i === 0 ? "2px solid var(--color-accent)" : "1px solid var(--color-border)",
-                position: "relative",
-              }}
-            >
-              {i === 0 && (
-                <div
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: "2px",
-                    backgroundColor: "var(--color-accent)",
-                  }}
-                />
-              )}
+            <div>
               <p
                 style={{
                   fontSize: "0.75rem",
                   fontWeight: 600,
-                  color: "var(--color-muted)",
-                  margin: "0 0 0.5rem",
-                  maxWidth: "none",
-                  letterSpacing: "0.04em",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "var(--color-accent)",
+                  marginBottom: "0.875rem",
                 }}
               >
-                {step.number}
+                How it works
               </p>
-              <p
+              <h2
                 style={{
-                  fontSize: "0.9375rem",
-                  fontWeight: 500,
+                  fontFamily: "var(--font-display), system-ui, sans-serif",
+                  fontSize: "clamp(3rem, 7vw, 6.5rem)",
+                  fontWeight: 800,
+                  lineHeight: 1.0,
+                  letterSpacing: "-0.04em",
                   color: "var(--color-ink)",
                   margin: 0,
-                  maxWidth: "none",
-                  lineHeight: 1.3,
                 }}
               >
-                {step.label}
-              </p>
+                The process
+              </h2>
             </div>
-          ))}
-          {/* Cap right border */}
-          <div style={{ flex: "0 0 1px", borderLeft: "1px solid var(--color-border)" }} />
-        </div>
+            <Link
+              href="/process"
+              style={{
+                fontSize: "0.875rem",
+                fontWeight: 500,
+                color: "var(--color-ink)",
+                textDecoration: "none",
+                borderBottom: "1px solid currentColor",
+                paddingBottom: "2px",
+                opacity: 0.6,
+                whiteSpace: "nowrap",
+                alignSelf: "flex-end",
+                marginBottom: "0.5rem",
+              }}
+            >
+              See in detail →
+            </Link>
+          </div>
+        </MotionReveal>
+
+        {/* Steps as a horizontal scrolling row */}
+        <MotionReveal delay={0.1}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: `repeat(${steps.length}, 1fr)`,
+              borderTop: "1px solid var(--color-border)",
+            }}
+            className="process-steps"
+          >
+            {steps.map((step, i) => (
+              <div
+                key={step.number}
+                style={{
+                  padding: "1.75rem 1.25rem 1.5rem",
+                  borderLeft: i === 0 ? "none" : "1px solid var(--color-border)",
+                  borderTop: i === 0 ? `2px solid var(--color-accent)` : "none",
+                  marginTop: i === 0 ? "-1px" : "0",
+                  position: "relative",
+                }}
+              >
+                {i !== 0 && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: "1px",
+                      backgroundColor: "transparent",
+                    }}
+                  />
+                )}
+                <p
+                  style={{
+                    fontSize: "0.6875rem",
+                    fontWeight: 700,
+                    color: "var(--color-muted)",
+                    margin: "0 0 0.625rem",
+                    maxWidth: "none",
+                    letterSpacing: "0.06em",
+                  }}
+                >
+                  {step.number}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "var(--font-display), system-ui, sans-serif",
+                    fontSize: "clamp(0.875rem, 1.2vw, 1.0625rem)",
+                    fontWeight: 600,
+                    color: "var(--color-ink)",
+                    margin: 0,
+                    maxWidth: "none",
+                    lineHeight: 1.3,
+                    letterSpacing: "-0.015em",
+                  }}
+                >
+                  {step.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </MotionReveal>
       </div>
+
+      <style>{`
+        @media (max-width: 700px) {
+          .process-steps {
+            grid-template-columns: repeat(4, minmax(120px, 1fr)) !important;
+            overflow-x: auto;
+          }
+        }
+      `}</style>
     </section>
   );
 }

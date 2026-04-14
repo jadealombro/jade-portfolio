@@ -53,7 +53,7 @@ export default function AboutPage() {
           </p>
           <h1
             style={{
-              fontFamily: "var(--font-fraunces), Georgia, serif",
+              fontFamily: "var(--font-display), system-ui, sans-serif",
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
               fontWeight: 600,
               lineHeight: 1.15,
@@ -108,7 +108,7 @@ export default function AboutPage() {
                 <div style={{ width: "28px", height: "2px", backgroundColor: "var(--color-accent)", marginBottom: "1rem" }} />
                 <h3
                   style={{
-                    fontFamily: "var(--font-fraunces), Georgia, serif",
+                    fontFamily: "var(--font-display), system-ui, sans-serif",
                     fontSize: "1.125rem",
                     fontWeight: 600,
                     color: "var(--color-ink)",
@@ -188,7 +188,7 @@ export default function AboutPage() {
           <div style={{ maxWidth: "540px" }}>
             <h2
               style={{
-                fontFamily: "var(--font-fraunces), Georgia, serif",
+                fontFamily: "var(--font-display), system-ui, sans-serif",
                 fontSize: "clamp(1.625rem, 3vw, 2.25rem)",
                 fontWeight: 600,
                 lineHeight: 1.2,

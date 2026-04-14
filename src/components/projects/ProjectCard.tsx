@@ -75,7 +75,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
         </div>
         <h3
           style={{
-            fontFamily: "var(--font-fraunces), Georgia, serif",
+            fontFamily: "var(--font-display), system-ui, sans-serif",
             fontSize: featured ? "1.3125rem" : "1.125rem",
             fontWeight: 600,
             color: "var(--color-ink)",

@@ -1,123 +1,171 @@
 import Link from "next/link";
-import SectionHeading from "@/components/ui/SectionHeading";
+import MotionReveal, { StaggerReveal } from "@/components/ui/MotionReveal";
 
 const services = [
   {
     title: "WordPress Website Development",
     href: "/services/wordpress-website-development",
     description:
-      "Custom business websites built around your content, goals, and the way your business works — not adapted from a generic template.",
+      "Custom business websites built around your content, goals, and the way your business works.",
   },
   {
     title: "WooCommerce Development",
     href: "/services/woocommerce-development",
     description:
-      "Ecommerce experiences built with WooCommerce, with attention to usability, structure, product management, and maintainability.",
+      "Ecommerce built with WooCommerce — usable, structured, and manageable.",
   },
   {
     title: "Maintenance & Support",
     href: "/services/maintenance-support",
     description:
-      "Ongoing support for websites that need updates, improvements, troubleshooting, and reliable long-term care.",
+      "Ongoing support for sites that need updates, improvements, and reliable long-term care.",
   },
 ];
 
 export default function ServicesSnapshot() {
   return (
     <section
-      className="section-padding"
-      style={{ backgroundColor: "var(--color-surface)", borderTop: "1px solid var(--color-border)" }}
+      style={{
+        paddingBlock: "clamp(5rem, 10vw, 9rem)",
+        backgroundColor: "var(--color-surface)",
+        borderTop: "1px solid var(--color-border)",
+      }}
     >
       <div className="container-site">
-        <SectionHeading
-          label="What I help with"
-          heading="Services"
-          subheading="I specialize in custom WordPress work for businesses that need a site that is both professional and practical."
-        />
+        {/* Headline */}
+        <MotionReveal>
+          <div style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}>
+            <p
+              style={{
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "var(--color-accent)",
+                marginBottom: "0.875rem",
+              }}
+            >
+              What I help with
+            </p>
+            <h2
+              style={{
+                fontFamily: "var(--font-display), system-ui, sans-serif",
+                fontSize: "clamp(3rem, 7vw, 6.5rem)",
+                fontWeight: 800,
+                lineHeight: 1.0,
+                letterSpacing: "-0.04em",
+                color: "var(--color-ink)",
+                margin: 0,
+              }}
+            >
+              Services
+            </h2>
+          </div>
+        </MotionReveal>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 300px), 1fr))",
-            gap: "1px",
-            backgroundColor: "var(--color-border)",
-            border: "1px solid var(--color-border)",
-            borderRadius: "var(--radius-md)",
-            overflow: "hidden",
-          }}
+        {/* Service rows — editorial list style */}
+        <StaggerReveal
+          stagger={0.1}
+          style={{ display: "flex", flexDirection: "column" }}
         >
-          {services.map((service) => (
+          {services.map((service, i) => (
             <Link
               key={service.href}
               href={service.href}
               style={{
-                backgroundColor: "var(--color-background)",
-                padding: "2rem",
-                textDecoration: "none",
                 display: "flex",
-                flexDirection: "column",
-                gap: "0.75rem",
-                transition: "background-color 0.2s ease",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                gap: "2rem",
+                paddingBlock: "clamp(1.5rem, 3vw, 2.5rem)",
+                borderTop: "1px solid var(--color-border)",
+                textDecoration: "none",
+                color: "inherit",
               }}
-              className="service-card"
+              className="service-row"
             >
-              <h3
-                style={{
-                  fontFamily: "var(--font-fraunces), Georgia, serif",
-                  fontSize: "1.1875rem",
-                  fontWeight: 600,
-                  color: "var(--color-ink)",
-                  margin: 0,
-                  lineHeight: 1.3,
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                {service.title}
-              </h3>
-              <p
-                style={{
-                  fontSize: "0.9375rem",
-                  lineHeight: 1.6,
-                  color: "var(--color-ink-secondary)",
-                  margin: 0,
-                  maxWidth: "none",
-                  flex: 1,
-                }}
-              >
-                {service.description}
-              </p>
+              <div style={{ display: "flex", gap: "1.5rem", alignItems: "baseline", flex: 1, flexWrap: "wrap" }}>
+                <span
+                  style={{
+                    fontSize: "0.75rem",
+                    fontWeight: 600,
+                    color: "var(--color-muted)",
+                    letterSpacing: "0.06em",
+                    flexShrink: 0,
+                    width: "1.5rem",
+                  }}
+                >
+                  0{i + 1}
+                </span>
+                <div style={{ flex: 1 }}>
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-display), system-ui, sans-serif",
+                      fontSize: "clamp(1.375rem, 2.5vw, 2rem)",
+                      fontWeight: 700,
+                      color: "var(--color-ink)",
+                      margin: "0 0 0.375rem",
+                      lineHeight: 1.2,
+                      letterSpacing: "-0.02em",
+                      transition: "color 0.2s ease",
+                    }}
+                    className="service-title"
+                  >
+                    {service.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "0.9375rem",
+                      lineHeight: 1.55,
+                      color: "var(--color-ink-secondary)",
+                      margin: 0,
+                      maxWidth: "46ch",
+                    }}
+                  >
+                    {service.description}
+                  </p>
+                </div>
+              </div>
               <span
                 style={{
-                  fontSize: "0.8125rem",
-                  fontWeight: 500,
-                  color: "var(--color-accent)",
+                  fontSize: "1.25rem",
+                  color: "var(--color-muted)",
+                  flexShrink: 0,
                   marginTop: "0.25rem",
+                  transition: "transform 0.25s ease, color 0.2s ease",
                 }}
+                className="service-arrow"
+                aria-hidden="true"
               >
-                Learn more →
+                →
               </span>
             </Link>
           ))}
-        </div>
+          {/* Final border */}
+          <div style={{ borderTop: "1px solid var(--color-border)" }} />
+        </StaggerReveal>
 
-        <p
-          style={{
-            marginTop: "1.75rem",
-            fontSize: "0.9375rem",
-            color: "var(--color-ink-secondary)",
-            lineHeight: 1.6,
-          }}
-        >
-          I also help with custom functionality, plugins, API integrations, rebuilds, and other technical needs where WordPress requires a more tailored approach.{" "}
-          <Link href="/services" style={{ color: "var(--color-ink)", fontWeight: 500, textDecoration: "underline", textUnderlineOffset: "3px" }}>
-            Explore all services
-          </Link>
-        </p>
-
-        <style>{`
-          .service-card:hover { background-color: var(--color-accent-light) !important; }
-        `}</style>
+        <MotionReveal delay={0.3}>
+          <p
+            style={{
+              marginTop: "2rem",
+              fontSize: "0.9375rem",
+              color: "var(--color-ink-secondary)",
+              lineHeight: 1.6,
+            }}
+          >
+            Also: custom plugins, API integrations, rebuilds, and other technical needs.{" "}
+            <Link href="/services" style={{ color: "var(--color-ink)", fontWeight: 500, textDecoration: "underline", textUnderlineOffset: "3px" }}>
+              All services
+            </Link>
+          </p>
+        </MotionReveal>
       </div>
+
+      <style>{`
+        .service-row:hover .service-title { color: var(--color-accent); }
+        .service-row:hover .service-arrow { transform: translate(4px, 0); color: var(--color-accent); }
+      `}</style>
     </section>
   );
 }

@@ -50,7 +50,7 @@ export default function WooCommercePage() {
           </p>
           <h1
             style={{
-              fontFamily: "var(--font-fraunces), Georgia, serif",
+              fontFamily: "var(--font-display), system-ui, sans-serif",
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
               fontWeight: 600,
               lineHeight: 1.15,
@@ -131,7 +131,7 @@ export default function WooCommercePage() {
       <section className="section-padding">
         <div className="container-site">
           <div style={{ maxWidth: "540px" }}>
-            <h2 style={{ fontFamily: "var(--font-fraunces), Georgia, serif", fontSize: "clamp(1.625rem, 3vw, 2.25rem)", fontWeight: 600, lineHeight: 1.2, letterSpacing: "-0.02em", color: "var(--color-ink)", margin: "0 0 1.25rem" }}>
+            <h2 style={{ fontFamily: "var(--font-display), system-ui, sans-serif", fontSize: "clamp(1.625rem, 3vw, 2.25rem)", fontWeight: 600, lineHeight: 1.2, letterSpacing: "-0.02em", color: "var(--color-ink)", margin: "0 0 1.25rem" }}>
               Have a WooCommerce project in mind?
             </h2>
             <p style={{ fontSize: "1.0625rem", lineHeight: 1.65, color: "var(--color-ink-secondary)", marginBottom: "2rem" }}>

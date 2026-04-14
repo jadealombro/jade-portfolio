@@ -104,7 +104,7 @@ export default function ContactForm() {
       >
         <h2
           style={{
-            fontFamily: "var(--font-fraunces), Georgia, serif",
+            fontFamily: "var(--font-display), system-ui, sans-serif",
             fontSize: "1.5rem",
             fontWeight: 600,
             color: "var(--color-ink)",
