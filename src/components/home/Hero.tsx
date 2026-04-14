@@ -5,6 +5,40 @@ import Link from "next/link";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
+/* Each line clips upward independently */
+function HeroLine({
+  children,
+  delay,
+  outlined = false,
+}: {
+  children: React.ReactNode;
+  delay: number;
+  outlined?: boolean;
+}) {
+  return (
+    <div style={{ overflow: "hidden", lineHeight: 0 }}>
+      <motion.span
+        initial={{ y: "105%" }}
+        animate={{ y: 0 }}
+        transition={{ duration: 1, delay, ease }}
+        style={{
+          display: "block",
+          fontFamily: "var(--font-display), system-ui, sans-serif",
+          fontSize: "clamp(4rem, 11vw, 10.5rem)",
+          fontWeight: 800,
+          lineHeight: 0.92,
+          letterSpacing: "-0.04em",
+          color: outlined ? "transparent" : "var(--color-ink)",
+          WebkitTextStroke: outlined ? "1.5px var(--color-ink)" : undefined,
+          paddingBottom: "0.08em", /* prevents clipping descenders */
+        }}
+      >
+        {children}
+      </motion.span>
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
     <section
@@ -12,41 +46,47 @@ export default function Hero() {
         minHeight: "100svh",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-end",
-        paddingBottom: "clamp(3rem, 8vw, 6rem)",
-        paddingTop: "120px",
+        justifyContent: "center",
+        alignItems: "center",
+        paddingTop: "80px",
+        paddingBottom: "clamp(3rem, 6vw, 5rem)",
         position: "relative",
         overflow: "hidden",
+        textAlign: "center",
       }}
     >
-      {/* Atmospheric radial glow */}
+      {/* Atmospheric glow — centred behind text */}
       <div
         aria-hidden="true"
         style={{
           position: "absolute",
-          top: "20%",
-          right: "-10%",
-          width: "70vw",
-          height: "70vw",
+          top: "30%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "80vw",
+          height: "80vw",
           maxWidth: "900px",
           maxHeight: "900px",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(61,90,76,0.09) 0%, transparent 65%)",
+            "radial-gradient(circle, rgba(61,90,76,0.1) 0%, transparent 65%)",
           pointerEvents: "none",
         }}
       />
 
-      <div className="container-site" style={{ position: "relative", zIndex: 1 }}>
+      <div
+        className="container-site"
+        style={{ position: "relative", zIndex: 1, width: "100%" }}
+      >
         {/* Eyebrow */}
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1, ease }}
+          transition={{ duration: 0.6, delay: 0.05, ease }}
           style={{
-            fontSize: "0.8125rem",
-            fontWeight: 500,
-            letterSpacing: "0.12em",
+            fontSize: "0.75rem",
+            fontWeight: 600,
+            letterSpacing: "0.14em",
             textTransform: "uppercase",
             color: "var(--color-accent)",
             marginBottom: "clamp(1.5rem, 3vw, 2.5rem)",
@@ -55,195 +95,130 @@ export default function Hero() {
           WordPress Developer
         </motion.p>
 
-        {/* Massive headline — split into two lines for drama */}
-        <div style={{ overflow: "hidden", marginBottom: "clamp(1rem, 2vw, 1.5rem)" }}>
-          <motion.h1
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2, ease }}
-            style={{
-              fontFamily: "var(--font-display), system-ui, sans-serif",
-              fontSize: "clamp(3.25rem, 9vw, 8.5rem)",
-              fontWeight: 800,
-              lineHeight: 1.0,
-              letterSpacing: "-0.04em",
-              color: "var(--color-ink)",
-              margin: 0,
-            }}
-          >
-            Custom WordPress
-          </motion.h1>
+        {/* Display headline */}
+        <div style={{ marginBottom: "clamp(2rem, 4vw, 3.5rem)" }}>
+          <HeroLine delay={0.18}>Custom WordPress</HeroLine>
+          <HeroLine delay={0.3}>websites</HeroLine>
+          <HeroLine delay={0.42} outlined>for business.</HeroLine>
         </div>
 
-        <div
-          style={{
-            overflow: "hidden",
-            marginBottom: "clamp(2rem, 4vw, 3.5rem)",
-            display: "flex",
-            alignItems: "baseline",
-            gap: "clamp(0.5rem, 1.5vw, 1.25rem)",
-            flexWrap: "wrap",
-          }}
-        >
-          <motion.span
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.9, delay: 0.32, ease }}
-            style={{
-              display: "block",
-              fontFamily: "var(--font-display), system-ui, sans-serif",
-              fontSize: "clamp(3.25rem, 9vw, 8.5rem)",
-              fontWeight: 800,
-              lineHeight: 1.0,
-              letterSpacing: "-0.04em",
-              color: "var(--color-ink)",
-            }}
-          >
-            websites
-          </motion.span>
-          <motion.span
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.9, delay: 0.44, ease }}
-            style={{
-              display: "block",
-              fontFamily: "var(--font-display), system-ui, sans-serif",
-              fontSize: "clamp(3.25rem, 9vw, 8.5rem)",
-              fontWeight: 800,
-              lineHeight: 1.0,
-              letterSpacing: "-0.04em",
-              color: "transparent",
-              WebkitTextStroke: "2px var(--color-ink)",
-            }}
-          >
-            for business.
-          </motion.span>
-        </div>
-
-        {/* Supporting text + CTAs side by side */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+        {/* Supporting copy */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.65, ease }}
           style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "2rem",
-            maxWidth: "900px",
+            fontSize: "clamp(1rem, 1.4vw, 1.125rem)",
+            lineHeight: 1.65,
+            color: "var(--color-ink-secondary)",
+            margin: "0 auto clamp(2rem, 3vw, 2.75rem)",
+            maxWidth: "44ch",
           }}
-          className="hero-bottom"
         >
-          <p
+          I&apos;m Jade Alombro. I build custom business websites with WordPress — reliable, maintainable, and built around the way your business actually works.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.78, ease }}
+          style={{
+            display: "flex",
+            gap: "1rem",
+            justifyContent: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <Link
+            href="/projects"
             style={{
-              fontSize: "clamp(1rem, 1.5vw, 1.125rem)",
-              lineHeight: 1.65,
-              color: "var(--color-ink-secondary)",
-              margin: 0,
-              maxWidth: "48ch",
+              display: "inline-flex",
+              alignItems: "center",
+              fontSize: "0.9375rem",
+              fontWeight: 600,
+              color: "var(--color-background)",
+              backgroundColor: "var(--color-ink)",
+              textDecoration: "none",
+              padding: "0.75rem 1.75rem",
+              borderRadius: "var(--radius-sm)",
+              letterSpacing: "-0.01em",
             }}
           >
-            I&apos;m Jade Alombro. I build custom business websites with WordPress — reliable, maintainable, and built around the way your business actually works. From full builds to WooCommerce, maintenance, and custom functionality.
-          </p>
-
-          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", alignItems: "center" }}>
-            <Link
-              href="/projects"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                fontSize: "0.9375rem",
-                fontWeight: 600,
-                color: "var(--color-background)",
-                backgroundColor: "var(--color-ink)",
-                textDecoration: "none",
-                padding: "0.75rem 1.625rem",
-                borderRadius: "var(--radius-sm)",
-                letterSpacing: "-0.01em",
-                transition: "background-color 0.2s ease",
-              }}
-            >
-              View projects
-            </Link>
-            <Link
-              href="/contact"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.375rem",
-                fontSize: "0.9375rem",
-                fontWeight: 500,
-                color: "var(--color-ink-secondary)",
-                textDecoration: "none",
-                letterSpacing: "-0.01em",
-                transition: "color 0.2s ease",
-              }}
-            >
-              Start a project
-              <span aria-hidden="true" style={{ fontSize: "1.1em" }}>→</span>
-            </Link>
-          </div>
+            View projects
+          </Link>
+          <Link
+            href="/contact"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.375rem",
+              fontSize: "0.9375rem",
+              fontWeight: 500,
+              color: "var(--color-ink-secondary)",
+              textDecoration: "none",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            Start a project
+            <span aria-hidden="true">→</span>
+          </Link>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — bottom right */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
+        transition={{ duration: 1, delay: 1.1 }}
+        aria-hidden="true"
         style={{
           position: "absolute",
           bottom: "2.5rem",
-          right: "3rem",
+          right: "2.5rem",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           gap: "0.5rem",
         }}
-        aria-hidden="true"
-        className="scroll-indicator"
+        className="scroll-hint"
       >
         <span
           style={{
-            fontSize: "0.6875rem",
-            letterSpacing: "0.12em",
+            fontSize: "0.625rem",
+            letterSpacing: "0.14em",
             textTransform: "uppercase",
             color: "var(--color-muted)",
-            fontWeight: 500,
+            fontWeight: 600,
             writingMode: "vertical-rl",
           }}
         >
           Scroll
         </span>
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
           style={{
             width: "1px",
-            height: "40px",
+            height: "48px",
             backgroundColor: "var(--color-border)",
             position: "relative",
+            overflow: "hidden",
           }}
         >
           <motion.div
-            animate={{ scaleY: [0, 1, 0], originY: 0 }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ y: ["-100%", "100%"] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
             style={{
               position: "absolute",
               inset: 0,
               backgroundColor: "var(--color-accent)",
-              transformOrigin: "top",
             }}
           />
         </motion.div>
       </motion.div>
 
       <style>{`
-        @media (min-width: 900px) {
-          .hero-bottom { grid-template-columns: 1fr 1fr !important; align-items: end; }
-        }
-        @media (max-width: 640px) {
-          .scroll-indicator { display: none; }
+        @media (max-width: 580px) {
+          .scroll-hint { display: none; }
         }
       `}</style>
     </section>

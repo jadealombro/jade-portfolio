@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Bricolage_Grotesque } from "next/font/google";
+import { Inter, Syne } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
@@ -10,7 +10,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const bricolage = Bricolage_Grotesque({
+const syne = Syne({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
@@ -40,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${bricolage.variable}`}>
+    <html lang="en" className={`${inter.variable} ${syne.variable}`}>
       <body className="antialiased">
         <Nav />
         <main>{children}</main>
