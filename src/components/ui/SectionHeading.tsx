@@ -39,20 +39,20 @@ export default function SectionHeading({
 
   const headingStyle: CSSProperties = isDisplay
     ? {
-        fontFamily: "var(--font-display), system-ui, sans-serif",
+        fontFamily: "var(--font-display), Georgia, serif",
         fontSize: "clamp(3rem, 7vw, 6.5rem)",
-        fontWeight: 800,
-        lineHeight: 1.0,
-        letterSpacing: "-0.04em",
+        fontWeight: 500,
+        lineHeight: 1.05,
+        letterSpacing: "-0.01em",
         color: "var(--color-ink)",
         margin: subheading ? "0 0 1.5rem" : "0",
       }
     : {
-        fontFamily: "var(--font-display), system-ui, sans-serif",
+        fontFamily: "var(--font-display), Georgia, serif",
         fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
-        fontWeight: 700,
-        lineHeight: 1.15,
-        letterSpacing: "-0.025em",
+        fontWeight: 500,
+        lineHeight: 1.2,
+        letterSpacing: "-0.01em",
         color: "var(--color-ink)",
         margin: subheading ? "0 0 1rem" : "0",
       };

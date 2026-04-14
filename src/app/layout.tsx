@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Syne } from "next/font/google";
+import { Inter, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
@@ -10,7 +10,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const syne = Syne({
+const ebGaramond = EB_Garamond({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
@@ -40,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${syne.variable}`}>
+    <html lang="en" className={`${inter.variable} ${ebGaramond.variable}`}>
       <body className="antialiased">
         <Nav />
         <main>{children}</main>

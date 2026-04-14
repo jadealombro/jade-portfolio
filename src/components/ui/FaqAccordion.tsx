@@ -32,7 +32,7 @@ export default function FaqAccordion({ items }: FaqAccordionProps) {
           >
             <span
               style={{
-                fontFamily: "var(--font-display), system-ui, sans-serif",
+                fontFamily: "var(--font-display), Georgia, serif",
                 fontSize: "1.125rem",
                 fontWeight: 600,
                 color: "var(--color-ink)",

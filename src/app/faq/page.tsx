@@ -22,7 +22,7 @@ export default function FaqPage() {
           </p>
           <h1
             style={{
-              fontFamily: "var(--font-display), system-ui, sans-serif",
+              fontFamily: "var(--font-display), Georgia, serif",
               fontSize: "clamp(2rem, 5vw, 3.5rem)",
               fontWeight: 600,
               lineHeight: 1.15,
@@ -56,7 +56,7 @@ export default function FaqPage() {
           <div style={{ maxWidth: "480px" }}>
             <h2
               style={{
-                fontFamily: "var(--font-display), system-ui, sans-serif",
+                fontFamily: "var(--font-display), Georgia, serif",
                 fontSize: "clamp(1.5rem, 3vw, 2rem)",
                 fontWeight: 600,
                 lineHeight: 1.25,

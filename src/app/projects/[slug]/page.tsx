@@ -45,7 +45,7 @@ export default async function ProjectPage({ params }: Props) {
           </div>
           <h1
             style={{
-              fontFamily: "var(--font-display), system-ui, sans-serif",
+              fontFamily: "var(--font-display), Georgia, serif",
               fontSize: "clamp(2rem, 5vw, 3.25rem)",
               fontWeight: 600,
               lineHeight: 1.15,
@@ -176,7 +176,7 @@ export default async function ProjectPage({ params }: Props) {
             <figure style={{ margin: 0, maxWidth: "640px" }}>
               <blockquote
                 style={{
-                  fontFamily: "var(--font-display), system-ui, sans-serif",
+                  fontFamily: "var(--font-display), Georgia, serif",
                   fontSize: "clamp(1.1rem, 2vw, 1.3125rem)",
                   lineHeight: 1.6,
                   fontWeight: 400,
@@ -209,7 +209,7 @@ export default async function ProjectPage({ params }: Props) {
           <div style={{ maxWidth: "540px" }}>
             <h2
               style={{
-                fontFamily: "var(--font-display), system-ui, sans-serif",
+                fontFamily: "var(--font-display), Georgia, serif",
                 fontSize: "clamp(1.625rem, 3vw, 2.25rem)",
                 fontWeight: 600,
                 lineHeight: 1.2,

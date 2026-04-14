@@ -12,13 +12,13 @@ export default function Intro() {
         <MotionReveal>
           <p
             style={{
-              fontFamily: "var(--font-display), system-ui, sans-serif",
+              fontFamily: "var(--font-display), Georgia, serif",
               fontSize: "clamp(1.625rem, 3.5vw, 2.625rem)",
               lineHeight: 1.35,
               fontWeight: 500,
               color: "var(--color-ink)",
               margin: "0 0 1.5rem",
-              letterSpacing: "-0.025em",
+              letterSpacing: "-0.01em",
               maxWidth: "820px",
             }}
           >

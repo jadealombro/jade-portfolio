@@ -48,11 +48,11 @@ export default function FinalCTA() {
         <MotionReveal delay={0.08}>
           <h2
             style={{
-              fontFamily: "var(--font-display), system-ui, sans-serif",
+              fontFamily: "var(--font-display), Georgia, serif",
               fontSize: "clamp(2.75rem, 8vw, 7.5rem)",
-              fontWeight: 800,
-              lineHeight: 1.0,
-              letterSpacing: "-0.04em",
+              fontWeight: 500,
+              lineHeight: 1.05,
+              letterSpacing: "-0.01em",
               color: "var(--color-ink)",
               margin: "0 0 clamp(2rem, 4vw, 3.5rem)",
               maxWidth: "14ch",

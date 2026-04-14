@@ -23,14 +23,14 @@ function HeroLine({
         transition={{ duration: 1, delay, ease }}
         style={{
           display: "block",
-          fontFamily: "var(--font-display), system-ui, sans-serif",
-          fontSize: "clamp(4rem, 11vw, 10.5rem)",
-          fontWeight: 800,
+          fontFamily: "var(--font-display), Georgia, serif",
+          fontSize: "clamp(3.75rem, 10.5vw, 10rem)",
+          fontWeight: 500,
           lineHeight: 0.92,
-          letterSpacing: "-0.04em",
-          color: outlined ? "transparent" : "var(--color-ink)",
-          WebkitTextStroke: outlined ? "1.5px var(--color-ink)" : undefined,
-          paddingBottom: "0.08em", /* prevents clipping descenders */
+          letterSpacing: "-0.01em",
+          fontStyle: outlined ? "italic" : "normal",
+          color: "var(--color-ink)",
+          paddingBottom: "0.12em",
         }}
       >
         {children}

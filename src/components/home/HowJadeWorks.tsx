@@ -48,11 +48,11 @@ export default function HowJadeWorks() {
             </p>
             <h2
               style={{
-                fontFamily: "var(--font-display), system-ui, sans-serif",
+                fontFamily: "var(--font-display), Georgia, serif",
                 fontSize: "clamp(3rem, 7vw, 6.5rem)",
-                fontWeight: 800,
-                lineHeight: 1.0,
-                letterSpacing: "-0.04em",
+                fontWeight: 500,
+                lineHeight: 1.05,
+                letterSpacing: "-0.01em",
                 color: "var(--color-ink)",
                 margin: 0,
               }}
@@ -82,13 +82,13 @@ export default function HowJadeWorks() {
               />
               <h3
                 style={{
-                  fontFamily: "var(--font-display), system-ui, sans-serif",
+                  fontFamily: "var(--font-display), Georgia, serif",
                   fontSize: "clamp(1.25rem, 2vw, 1.625rem)",
                   fontWeight: 700,
                   color: "var(--color-ink)",
                   margin: "0 0 0.875rem",
                   lineHeight: 1.2,
-                  letterSpacing: "-0.02em",
+                  letterSpacing: "-0.005em",
                   whiteSpace: "pre-line",
                 }}
               >

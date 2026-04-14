@@ -46,11 +46,11 @@ export default function ProcessPreview() {
               </p>
               <h2
                 style={{
-                  fontFamily: "var(--font-display), system-ui, sans-serif",
+                  fontFamily: "var(--font-display), Georgia, serif",
                   fontSize: "clamp(3rem, 7vw, 6.5rem)",
-                  fontWeight: 800,
-                  lineHeight: 1.0,
-                  letterSpacing: "-0.04em",
+                  fontWeight: 500,
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.01em",
                   color: "var(--color-ink)",
                   margin: 0,
                 }}
@@ -125,7 +125,7 @@ export default function ProcessPreview() {
                 </p>
                 <p
                   style={{
-                    fontFamily: "var(--font-display), system-ui, sans-serif",
+                    fontFamily: "var(--font-display), Georgia, serif",
                     fontSize: "clamp(0.875rem, 1.2vw, 1.0625rem)",
                     fontWeight: 600,
                     color: "var(--color-ink)",

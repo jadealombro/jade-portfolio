@@ -49,11 +49,11 @@ export default function QualityStandards() {
             </p>
             <h2
               style={{
-                fontFamily: "var(--font-display), system-ui, sans-serif",
+                fontFamily: "var(--font-display), Georgia, serif",
                 fontSize: "clamp(3rem, 7vw, 6.5rem)",
-                fontWeight: 800,
-                lineHeight: 1.0,
-                letterSpacing: "-0.04em",
+                fontWeight: 500,
+                lineHeight: 1.05,
+                letterSpacing: "-0.01em",
                 color: "var(--color-ink)",
                 margin: "0 0 1.25rem",
               }}
@@ -104,7 +104,7 @@ export default function QualityStandards() {
               />
               <h3
                 style={{
-                  fontFamily: "var(--font-display), system-ui, sans-serif",
+                  fontFamily: "var(--font-display), Georgia, serif",
                   fontSize: "1.125rem",
                   fontWeight: 700,
                   color: "var(--color-ink)",
