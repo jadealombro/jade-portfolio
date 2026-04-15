@@ -76,6 +76,7 @@ const hintStyle: React.CSSProperties = {
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const {
     register,
     handleSubmit,
@@ -83,10 +84,18 @@ export default function ContactForm() {
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    // Placeholder submission — replace with your form backend
-    await new Promise((r) => setTimeout(r, 800));
-    console.log("Form data:", data);
-    setSubmitted(true);
+    setSubmitError(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setSubmitted(true);
+    } catch {
+      setSubmitError(true);
+    }
   };
 
   if (submitted) {
@@ -229,6 +238,11 @@ export default function ContactForm() {
         <Button type="submit" size="lg" disabled={isSubmitting}>
           {isSubmitting ? "Sending..." : "Send inquiry"}
         </Button>
+        {submitError && (
+          <p style={{ ...errorStyle, marginTop: "0.875rem" }}>
+            Something went wrong — please try again or email me directly.
+          </p>
+        )}
         <p style={{ ...hintStyle, marginTop: "0.875rem" }}>
           I personally review every inquiry and follow up within 1–2 business days.
         </p>
