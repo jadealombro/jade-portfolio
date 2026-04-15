@@ -33,7 +33,7 @@ A premium, minimal portfolio website presenting Jade Alombro as a WordPress deve
 ## Install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/jade-portfolio.git
+git clone https://github.com/jadealombro/jade-portfolio.git
 cd jade-portfolio
 npm install
 ```
