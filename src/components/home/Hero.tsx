@@ -7,9 +7,9 @@ import Link from "next/link";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const rotatingPhrases = [
-  "does the work.",
-  "gets noticed.",
-  "earns its keep.",
+  "gets you found.",
+  "brings in clients.",
+  "builds trust fast.",
 ];
 
 function HeroLine({
@@ -135,12 +135,12 @@ export default function Hero() {
             marginBottom: "clamp(1.5rem, 3vw, 2.5rem)",
           }}
         >
-          Imagine
+          Hi! I&apos;m Jade.
         </motion.p>
 
         {/* Display headline */}
         <div style={{ marginBottom: "clamp(2rem, 4vw, 3.5rem)" }}>
-          <HeroLine delay={0.1}>Your website that</HeroLine>
+          <HeroLine delay={0.1}>Imagine your website</HeroLine>
 
           {/* Rotating line — min-height holds space for one line */}
           <div
