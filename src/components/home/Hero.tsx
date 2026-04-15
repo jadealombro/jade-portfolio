@@ -7,9 +7,9 @@ import Link from "next/link";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const rotatingPhrases = [
-  "gets results.",
-  "works for you.",
-  "you'll be proud of.",
+  "does the work.",
+  "gets noticed.",
+  "earns its keep.",
 ];
 
 function HeroLine({
@@ -134,7 +134,7 @@ export default function Hero() {
             marginBottom: "clamp(1.5rem, 3vw, 2.5rem)",
           }}
         >
-          Freelance Web Developer
+          A freelance developer who builds websites that work.
         </motion.p>
 
         {/* Display headline */}
@@ -174,7 +174,7 @@ export default function Hero() {
             maxWidth: "44ch",
           }}
         >
-          I&apos;m Jade Alombro — a freelance web developer specializing in WordPress. I build custom websites that fit your business, not the other way around.
+          I&apos;m Jade Alombro. Let&apos;s create something great together — reach out and tell me about your project.
         </motion.p>
 
         {/* CTAs */}
@@ -200,7 +200,7 @@ export default function Hero() {
               letterSpacing: "-0.01em",
             }}
           >
-            Start a project
+            Let&apos;s work together
           </Link>
           <Link
             href="/projects"
