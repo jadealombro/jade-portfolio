@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ProjectCard from "@/components/projects/ProjectCard";
+import MotionReveal, { StaggerReveal } from "@/components/ui/MotionReveal";
 import { getFeaturedProjects, getAllProjects } from "@/data/projects";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -18,47 +19,42 @@ export default function ProjectsPage() {
   return (
     <>
       {/* Header */}
-      <div style={{ paddingTop: "120px", paddingBottom: "5rem", borderBottom: "1px solid var(--color-border)" }}>
+      <header style={{ paddingTop: "130px", paddingBottom: "clamp(4rem, 8vw, 6rem)", borderBottom: "1px solid var(--color-border)" }}>
         <div className="container-site">
-          <p style={{ fontSize: "0.8125rem", fontWeight: 500, letterSpacing: "0.09em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: "1.25rem" }}>
-            Work
-          </p>
-          <h1
-            style={{
-              fontFamily: "var(--font-display), Georgia, serif",
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 600,
-              lineHeight: 1.15,
-              letterSpacing: "-0.025em",
-              color: "var(--color-ink)",
-              margin: "0 0 1.25rem",
-              maxWidth: "640px",
-            }}
-          >
-            Projects
-          </h1>
-          <p style={{ fontSize: "1.125rem", lineHeight: 1.65, color: "var(--color-ink-secondary)", maxWidth: "54ch", margin: 0 }}>
-            Custom WordPress websites, WooCommerce solutions, and ongoing site support for businesses that need something thoughtful and dependable.
-          </p>
+          <MotionReveal>
+            <p style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: "1.5rem" }}>
+              Work
+            </p>
+            <h1
+              style={{
+                fontFamily: "var(--font-display), Georgia, serif",
+                fontSize: "clamp(3rem, 7vw, 6.5rem)",
+                fontWeight: 500,
+                lineHeight: 1.05,
+                letterSpacing: "-0.01em",
+                color: "var(--color-ink)",
+                margin: "0 0 1.75rem",
+              }}
+            >
+              Projects
+            </h1>
+            <p style={{ fontSize: "clamp(1rem, 1.4vw, 1.125rem)", lineHeight: 1.65, color: "var(--color-ink-secondary)", maxWidth: "44ch", margin: 0 }}>
+              Custom WordPress websites, WooCommerce solutions, and ongoing site support for businesses that need something thoughtful and dependable.
+            </p>
+          </MotionReveal>
         </div>
-      </div>
+      </header>
 
       {/* Featured projects */}
-      <section className="section-padding" style={{ borderBottom: "1px solid var(--color-border)" }}>
+      <section style={{ paddingBlock: "clamp(5rem, 10vw, 9rem)", borderBottom: "1px solid var(--color-border)" }}>
         <div className="container-site">
-          <p
-            style={{
-              fontSize: "0.75rem",
-              fontWeight: 600,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "var(--color-muted)",
-              marginBottom: "2rem",
-            }}
-          >
-            Featured
-          </p>
-          <div
+          <MotionReveal>
+            <p style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--color-muted)", marginBottom: "2.5rem" }}>
+              Featured
+            </p>
+          </MotionReveal>
+          <StaggerReveal
+            stagger={0.12}
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 360px), 1fr))",
@@ -68,27 +64,21 @@ export default function ProjectsPage() {
             {featured.map((project) => (
               <ProjectCard key={project.slug} project={project} featured />
             ))}
-          </div>
+          </StaggerReveal>
         </div>
       </section>
 
       {/* Remaining projects */}
       {remaining.length > 0 && (
-        <section className="section-padding">
+        <section style={{ paddingBlock: "clamp(5rem, 10vw, 9rem)" }}>
           <div className="container-site">
-            <p
-              style={{
-                fontSize: "0.75rem",
-                fontWeight: 600,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "var(--color-muted)",
-                marginBottom: "2rem",
-              }}
-            >
-              More work
-            </p>
-            <div
+            <MotionReveal>
+              <p style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--color-muted)", marginBottom: "2.5rem" }}>
+                More work
+              </p>
+            </MotionReveal>
+            <StaggerReveal
+              stagger={0.1}
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 300px), 1fr))",
@@ -98,7 +88,7 @@ export default function ProjectsPage() {
               {remaining.map((project) => (
                 <ProjectCard key={project.slug} project={project} />
               ))}
-            </div>
+            </StaggerReveal>
           </div>
         </section>
       )}

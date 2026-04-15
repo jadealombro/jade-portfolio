@@ -28,8 +28,8 @@ function HeroLine({
           fontWeight: 500,
           lineHeight: 0.92,
           letterSpacing: "-0.01em",
-          fontStyle: outlined ? "italic" : "normal",
-          color: "var(--color-ink)",
+          color: outlined ? "transparent" : "var(--color-ink)",
+          WebkitTextStroke: outlined ? "1.5px var(--color-ink)" : undefined,
           paddingBottom: "0.12em",
         }}
       >

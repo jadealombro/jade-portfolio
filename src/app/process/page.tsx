@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Button from "@/components/ui/Button";
+import MotionReveal, { StaggerReveal } from "@/components/ui/MotionReveal";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildMetadata({
@@ -100,35 +101,36 @@ export default function ProcessPage() {
   return (
     <>
       {/* Header */}
-      <div style={{ paddingTop: "120px", paddingBottom: "5rem", borderBottom: "1px solid var(--color-border)" }}>
+      <header style={{ paddingTop: "130px", paddingBottom: "clamp(4rem, 8vw, 6rem)", borderBottom: "1px solid var(--color-border)" }}>
         <div className="container-site">
-          <p style={{ fontSize: "0.8125rem", fontWeight: 500, letterSpacing: "0.09em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: "1.25rem" }}>
-            Process
-          </p>
-          <h1
-            style={{
-              fontFamily: "var(--font-display), Georgia, serif",
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 600,
-              lineHeight: 1.15,
-              letterSpacing: "-0.025em",
-              color: "var(--color-ink)",
-              margin: "0 0 1.5rem",
-              maxWidth: "680px",
-            }}
-          >
-            A clear process from planning to launch
-          </h1>
-          <p style={{ fontSize: "1.125rem", lineHeight: 1.65, color: "var(--color-ink-secondary)", maxWidth: "54ch", margin: 0 }}>
-            Good work comes from a thoughtful process. I keep projects organized, collaborative, and focused on what matters most at each stage.
-          </p>
+          <MotionReveal>
+            <p style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: "1.5rem" }}>
+              Process
+            </p>
+            <h1
+              style={{
+                fontFamily: "var(--font-display), Georgia, serif",
+                fontSize: "clamp(3rem, 7vw, 6.5rem)",
+                fontWeight: 500,
+                lineHeight: 1.05,
+                letterSpacing: "-0.01em",
+                color: "var(--color-ink)",
+                margin: "0 0 1.75rem",
+              }}
+            >
+              A clear process from planning to launch
+            </h1>
+            <p style={{ fontSize: "clamp(1rem, 1.4vw, 1.125rem)", lineHeight: 1.65, color: "var(--color-ink-secondary)", maxWidth: "44ch", margin: 0 }}>
+              Good work comes from a thoughtful process. I keep projects organized, collaborative, and focused on what matters most at each stage.
+            </p>
+          </MotionReveal>
         </div>
-      </div>
+      </header>
 
       {/* Steps */}
-      <section style={{ paddingBlock: "5rem" }}>
+      <section style={{ paddingBlock: "clamp(4rem, 8vw, 6rem)" }}>
         <div className="container-site">
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <StaggerReveal stagger={0.08} style={{ display: "flex", flexDirection: "column" }}>
             {steps.map((step) => (
               <div
                 key={step.number}
@@ -141,7 +143,6 @@ export default function ProcessPage() {
                 }}
                 className="process-step"
               >
-                {/* Step number + title */}
                 <div>
                   <p style={{ fontSize: "0.75rem", fontWeight: 600, color: "var(--color-muted)", letterSpacing: "0.06em", margin: "0 0 0.5rem", maxWidth: "none" }}>
                     Step {step.number}
@@ -150,18 +151,17 @@ export default function ProcessPage() {
                     style={{
                       fontFamily: "var(--font-display), Georgia, serif",
                       fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
-                      fontWeight: 600,
+                      fontWeight: 500,
                       color: "var(--color-ink)",
                       margin: 0,
-                      letterSpacing: "-0.015em",
-                      lineHeight: 1.25,
+                      letterSpacing: "-0.01em",
+                      lineHeight: 1.2,
                     }}
                   >
                     {step.title}
                   </h2>
                 </div>
 
-                {/* Content */}
                 <div>
                   <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: "var(--color-ink-secondary)", marginBottom: "2rem" }}>
                     {step.description}
@@ -182,28 +182,37 @@ export default function ProcessPage() {
                 </div>
               </div>
             ))}
-
-            {/* Final border */}
-            <div style={{ borderTop: "1px solid var(--color-border)" }} />
-          </div>
+          </StaggerReveal>
+          <div style={{ borderTop: "1px solid var(--color-border)" }} />
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-padding" style={{ borderTop: "1px solid var(--color-border)" }}>
+      <section style={{ paddingBlock: "clamp(5rem, 10vw, 9rem)", borderTop: "1px solid var(--color-border)" }}>
         <div className="container-site">
-          <div style={{ maxWidth: "540px" }}>
-            <h2 style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "clamp(1.625rem, 3vw, 2.25rem)", fontWeight: 600, lineHeight: 1.2, letterSpacing: "-0.02em", color: "var(--color-ink)", margin: "0 0 1.25rem" }}>
+          <MotionReveal>
+            <h2
+              style={{
+                fontFamily: "var(--font-display), Georgia, serif",
+                fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                fontWeight: 500,
+                lineHeight: 1.1,
+                letterSpacing: "-0.01em",
+                color: "var(--color-ink)",
+                margin: "0 0 1.5rem",
+                maxWidth: "18ch",
+              }}
+            >
               Ready to get started?
             </h2>
-            <p style={{ fontSize: "1.0625rem", lineHeight: 1.65, color: "var(--color-ink-secondary)", marginBottom: "2rem" }}>
+            <p style={{ fontSize: "1.0625rem", lineHeight: 1.65, color: "var(--color-ink-secondary)", marginBottom: "2.5rem" }}>
               Tell me about your project and we&apos;ll start from the beginning — with a proper discovery process.
             </p>
             <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
               <Button href="/contact" size="lg">Start a project</Button>
               <Button href="/projects" variant="secondary" size="lg">View projects</Button>
             </div>
-          </div>
+          </MotionReveal>
         </div>
       </section>
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
+import MotionReveal, { StaggerReveal } from "@/components/ui/MotionReveal";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildMetadata({
@@ -68,37 +69,51 @@ export default function ServicesPage() {
   return (
     <>
       {/* Header */}
-      <div style={{ paddingTop: "120px", paddingBottom: "5rem", borderBottom: "1px solid var(--color-border)" }}>
+      <header style={{ paddingTop: "130px", paddingBottom: "clamp(4rem, 8vw, 6rem)", borderBottom: "1px solid var(--color-border)" }}>
         <div className="container-site">
-          <p style={{ fontSize: "0.8125rem", fontWeight: 500, letterSpacing: "0.09em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: "1.25rem" }}>
-            Services
-          </p>
-          <h1
-            style={{
-              fontFamily: "var(--font-display), Georgia, serif",
-              fontSize: "clamp(2rem, 5vw, 3.5rem)",
-              fontWeight: 600,
-              lineHeight: 1.15,
-              letterSpacing: "-0.025em",
-              color: "var(--color-ink)",
-              margin: "0 0 1.5rem",
-              maxWidth: "680px",
-            }}
-          >
-            Custom WordPress work for businesses that need more than a template
-          </h1>
-          <p style={{ fontSize: "1.125rem", lineHeight: 1.65, color: "var(--color-ink-secondary)", maxWidth: "54ch", marginBottom: "2rem" }}>
-            I specialize in custom WordPress development — from building new business websites to improving and supporting existing ones.
-          </p>
-          <Button href="/contact" size="lg">Start a project</Button>
+          <MotionReveal>
+            <p style={{ fontSize: "0.75rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--color-accent)", marginBottom: "1.5rem" }}>
+              Services
+            </p>
+            <h1
+              style={{
+                fontFamily: "var(--font-display), Georgia, serif",
+                fontSize: "clamp(3rem, 7vw, 6.5rem)",
+                fontWeight: 500,
+                lineHeight: 1.05,
+                letterSpacing: "-0.01em",
+                color: "var(--color-ink)",
+                margin: "0 0 1.75rem",
+              }}
+            >
+              Custom WordPress work for businesses that need more than a template
+            </h1>
+            <p style={{ fontSize: "clamp(1rem, 1.4vw, 1.125rem)", lineHeight: 1.65, color: "var(--color-ink-secondary)", maxWidth: "44ch", marginBottom: "2.5rem" }}>
+              I specialize in custom WordPress development — from building new business websites to improving and supporting existing ones.
+            </p>
+            <Button href="/contact" size="lg">Start a project</Button>
+          </MotionReveal>
         </div>
-      </div>
+      </header>
 
       {/* Main services */}
-      <section className="section-padding" style={{ borderBottom: "1px solid var(--color-border)" }}>
+      <section style={{ paddingBlock: "clamp(5rem, 10vw, 9rem)", borderBottom: "1px solid var(--color-border)" }}>
         <div className="container-site">
-          <SectionHeading label="Main services" heading="What I specialize in" />
-          <div style={{ display: "flex", flexDirection: "column", gap: "1px", backgroundColor: "var(--color-border)", border: "1px solid var(--color-border)", borderRadius: "var(--radius-md)", overflow: "hidden" }}>
+          <MotionReveal>
+            <SectionHeading label="Main services" heading="What I specialize in" />
+          </MotionReveal>
+          <StaggerReveal
+            stagger={0.1}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "1px",
+              backgroundColor: "var(--color-border)",
+              border: "1px solid var(--color-border)",
+              borderRadius: "var(--radius-md)",
+              overflow: "hidden",
+            }}
+          >
             {mainServices.map((service) => (
               <div key={service.href} style={{ backgroundColor: "var(--color-background)", padding: "2.5rem" }}>
                 <div style={{ display: "grid", gap: "2rem", gridTemplateColumns: "1fr" }} className="service-row">
@@ -106,12 +121,12 @@ export default function ServicesPage() {
                     <h2
                       style={{
                         fontFamily: "var(--font-display), Georgia, serif",
-                        fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)",
-                        fontWeight: 600,
+                        fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
+                        fontWeight: 500,
                         color: "var(--color-ink)",
                         margin: "0 0 0.875rem",
-                        letterSpacing: "-0.015em",
-                        lineHeight: 1.25,
+                        letterSpacing: "-0.01em",
+                        lineHeight: 1.2,
                       }}
                     >
                       {service.title}
@@ -123,7 +138,7 @@ export default function ServicesPage() {
                       href={service.href}
                       style={{ fontSize: "0.875rem", fontWeight: 500, color: "var(--color-accent)", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.375rem" }}
                     >
-                      Learn more about this service →
+                      Learn more →
                     </Link>
                   </div>
                   <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
@@ -137,25 +152,34 @@ export default function ServicesPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </StaggerReveal>
         </div>
       </section>
 
       {/* Supporting capabilities */}
-      <section className="section-padding" style={{ backgroundColor: "var(--color-surface)", borderBottom: "1px solid var(--color-border)" }}>
+      <section style={{ paddingBlock: "clamp(5rem, 10vw, 9rem)", borderBottom: "1px solid var(--color-border)" }}>
         <div className="container-site">
-          <SectionHeading
-            label="Also available"
-            heading="Supporting capabilities"
-            subheading="Beyond the core services, I can also help with a range of related needs — depending on the project."
-          />
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 220px), 1fr))", gap: "0.75rem" }}>
+          <MotionReveal>
+            <SectionHeading
+              label="Also available"
+              heading="Supporting capabilities"
+              subheading="Beyond the core services, I can also help with a range of related needs — depending on the project."
+            />
+          </MotionReveal>
+          <StaggerReveal
+            stagger={0.06}
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 220px), 1fr))",
+              gap: "0.75rem",
+            }}
+          >
             {supporting.map((item) => (
               <div
                 key={item}
                 style={{
                   padding: "1rem 1.25rem",
-                  backgroundColor: "var(--color-background)",
+                  backgroundColor: "var(--color-surface)",
                   border: "1px solid var(--color-border)",
                   borderRadius: "var(--radius-sm)",
                   fontSize: "0.9rem",
@@ -166,22 +190,33 @@ export default function ServicesPage() {
                 {item}
               </div>
             ))}
-          </div>
+          </StaggerReveal>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-padding">
+      <section style={{ paddingBlock: "clamp(5rem, 10vw, 9rem)" }}>
         <div className="container-site">
-          <div style={{ maxWidth: "540px" }}>
-            <h2 style={{ fontFamily: "var(--font-display), Georgia, serif", fontSize: "clamp(1.625rem, 3vw, 2.25rem)", fontWeight: 600, lineHeight: 1.2, letterSpacing: "-0.02em", color: "var(--color-ink)", margin: "0 0 1.25rem" }}>
+          <MotionReveal>
+            <h2
+              style={{
+                fontFamily: "var(--font-display), Georgia, serif",
+                fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                fontWeight: 500,
+                lineHeight: 1.1,
+                letterSpacing: "-0.01em",
+                color: "var(--color-ink)",
+                margin: "0 0 1.5rem",
+                maxWidth: "22ch",
+              }}
+            >
               Not sure which service fits your needs?
             </h2>
-            <p style={{ fontSize: "1.0625rem", lineHeight: 1.65, color: "var(--color-ink-secondary)", marginBottom: "2rem" }}>
+            <p style={{ fontSize: "1.0625rem", lineHeight: 1.65, color: "var(--color-ink-secondary)", marginBottom: "2.5rem" }}>
               Reach out and describe what you&apos;re working on. I&apos;ll ask a few questions and help figure out the right approach.
             </p>
             <Button href="/contact" size="lg">Get in touch</Button>
-          </div>
+          </MotionReveal>
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Project } from "@/lib/types";
 import Tag from "@/components/ui/Tag";
 
@@ -36,11 +37,12 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
         }}
       >
         {project.images.length > 0 ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={project.images[0]}
             alt={project.name}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            fill
+            style={{ objectFit: "cover" }}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         ) : (
           <div

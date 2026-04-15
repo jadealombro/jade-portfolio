@@ -15,8 +15,7 @@
   --color-accent-light: #EEF3F0;
   --color-accent-hover: #2E4438;
 
-  /* Typography — --font-display is set by next/font (Bricolage Grotesque) */
-  --font-sans:    var(--font-inter);
+  /* Typography — --font-sans (Rubik) and --font-display (EB Garamond) are set by next/font */
 
   /* Spacing scale additions */
   --spacing-section: 6rem;
