@@ -190,7 +190,7 @@ export default function AboutPage() {
             <div style={{ maxWidth: "640px" }}>
               <SectionHeading label="Workflow" heading="On using AI tools" />
               <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: "var(--color-ink-secondary)", marginBottom: "1.25rem" }}>
-                I use AI tools as part of my workflow, and I want to be straightforward about that. They&apos;re genuinely useful — for exploring approaches, moving faster on certain tasks, catching things I might have missed, and working through problems more efficiently. Used well, they raise the quality and pace of the work.
+                I use AI tools as part of my workflow — no hedging about it. They&apos;re genuinely useful — for exploring approaches, moving faster on certain tasks, catching things I might have missed, and working through problems more efficiently. Used well, they raise the quality and pace of the work.
               </p>
               <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: "var(--color-ink-secondary)", marginBottom: "1.25rem" }}>
                 But AI doesn&apos;t replace the judgment that comes from building real projects over many years. It doesn&apos;t know your business, understand your users, or make the decisions that determine whether a site is actually good. Every architectural choice, implementation decision, and quality call is still made by me.
