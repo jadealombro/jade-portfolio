@@ -69,7 +69,7 @@ export default function Hero() {
           maxHeight: "900px",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(61,90,76,0.1) 0%, transparent 65%)",
+            "radial-gradient(circle, rgba(61,90,76,0.18) 0%, transparent 65%)",
           pointerEvents: "none",
         }}
       />
@@ -131,36 +131,38 @@ export default function Hero() {
           }}
         >
           <Link
-            href="/projects"
+            href="/contact"
             style={{
               display: "inline-flex",
               alignItems: "center",
               fontSize: "0.9375rem",
               fontWeight: 600,
-              color: "var(--color-background)",
-              backgroundColor: "var(--color-ink)",
+              color: "var(--color-ink)",
+              backgroundColor: "var(--color-amber)",
               textDecoration: "none",
               padding: "0.75rem 1.75rem",
               borderRadius: "9999px",
               letterSpacing: "-0.01em",
             }}
           >
-            View projects
+            Start a project
           </Link>
           <Link
-            href="/contact"
+            href="/projects"
             style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "0.375rem",
               fontSize: "0.9375rem",
               fontWeight: 500,
-              color: "var(--color-ink-secondary)",
+              color: "var(--color-accent)",
               textDecoration: "none",
               letterSpacing: "-0.01em",
+              borderBottom: "1px solid var(--color-accent)",
+              paddingBottom: "2px",
             }}
           >
-            Start a project
+            View projects
             <span aria-hidden="true">→</span>
           </Link>
         </motion.div>

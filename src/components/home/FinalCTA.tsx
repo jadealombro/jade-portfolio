@@ -11,7 +11,7 @@ export default function FinalCTA() {
         position: "relative",
       }}
     >
-      {/* Background accent glow */}
+      {/* Background accent glows — jade left, amber right */}
       <div
         aria-hidden="true"
         style={{
@@ -23,7 +23,22 @@ export default function FinalCTA() {
           maxWidth: "700px",
           maxHeight: "700px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(61,90,76,0.08) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(61,90,76,0.14) 0%, transparent 65%)",
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "-30%",
+          right: "-5%",
+          width: "50vw",
+          height: "50vw",
+          maxWidth: "600px",
+          maxHeight: "600px",
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(192,138,32,0.09) 0%, transparent 65%)",
           pointerEvents: "none",
         }}
       />
@@ -78,7 +93,7 @@ export default function FinalCTA() {
 
         <MotionReveal delay={0.26}>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-            <Button href="/contact" size="lg">Start a project</Button>
+            <Button href="/contact" variant="amber" size="lg">Start a project</Button>
             <Button href="/projects" variant="secondary" size="lg">View projects</Button>
           </div>
         </MotionReveal>

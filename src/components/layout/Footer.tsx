@@ -69,8 +69,8 @@ export default function Footer() {
                 style={{
                   fontSize: "0.875rem",
                   fontWeight: 500,
-                  color: "var(--color-background)",
-                  backgroundColor: "var(--color-ink)",
+                  color: "var(--color-ink)",
+                  backgroundColor: "var(--color-amber)",
                   textDecoration: "none",
                   padding: "0.625rem 1.25rem",
                   borderRadius: "9999px",
