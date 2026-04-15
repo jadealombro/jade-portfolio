@@ -71,20 +71,21 @@ function RotatingPhrase({ phrase, visible }: { phrase: string; visible: boolean 
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
-  const [started, setStarted] = useState(false);
+  const [phraseVisible, setPhraseVisible] = useState(false);
 
   useEffect(() => {
-    const start = setTimeout(() => setStarted(true), 2200);
-    return () => clearTimeout(start);
+    // Show first phrase right after the headline finishes animating in
+    const show = setTimeout(() => setPhraseVisible(true), 1300);
+    return () => clearTimeout(show);
   }, []);
 
   useEffect(() => {
-    if (!started) return;
+    if (!phraseVisible) return;
     const interval = setInterval(() => {
       setIndex((i) => (i + 1) % rotatingPhrases.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [started]);
+  }, [phraseVisible]);
 
   return (
     <section
@@ -157,7 +158,7 @@ export default function Hero() {
               paddingBottom: "0.12em",
             }}
           >
-            <RotatingPhrase phrase={rotatingPhrases[index]} visible={started} />
+            <RotatingPhrase phrase={rotatingPhrases[index]} visible={phraseVisible} />
           </div>
         </div>
 
