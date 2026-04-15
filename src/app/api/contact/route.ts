@@ -52,7 +52,7 @@ export async function POST(request: Request) {
     `;
 
     await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
+      from: "Jade Alombro <hello@jadealombro.com>",
       to: TO_EMAIL,
       replyTo: email,
       subject: `New inquiry from ${name} — ${helpWith}`,
