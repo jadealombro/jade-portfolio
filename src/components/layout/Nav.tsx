@@ -46,8 +46,8 @@ export default function Nav() {
           left: 0,
           right: 0,
           zIndex: 50,
-          backgroundColor: headerSolid ? "rgba(250,250,248,0.95)" : "transparent",
-          backdropFilter: headerSolid ? "blur(12px)" : "none",
+          backgroundColor: headerSolid ? "var(--color-background)" : "transparent",
+          backdropFilter: headerSolid ? "blur(8px)" : "none",
           borderBottom: headerSolid ? "1px solid var(--color-border)" : "1px solid transparent",
           transition: "background-color 0.3s ease, border-color 0.3s ease",
         }}

@@ -92,6 +92,7 @@ export default function QualityStandards() {
               style={{
                 padding: "1.75rem",
                 backgroundColor: "var(--color-background)",
+                height: "100%",
               }}
             >
               <div
