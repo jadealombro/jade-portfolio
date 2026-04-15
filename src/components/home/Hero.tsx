@@ -134,7 +134,7 @@ export default function Hero() {
             marginBottom: "clamp(1.5rem, 3vw, 2.5rem)",
           }}
         >
-          Hi, I&apos;m Jade.
+          Imagine
         </motion.p>
 
         {/* Display headline */}
@@ -174,7 +174,7 @@ export default function Hero() {
             maxWidth: "44ch",
           }}
         >
-          I&apos;m Jade Alombro. Let&apos;s create something great together — reach out and tell me about your project.
+          I&apos;m Jade Alombro — a freelance web developer specializing in WordPress. I build custom websites that fit your business, not the other way around.
         </motion.p>
 
         {/* CTAs */}
