@@ -134,7 +134,8 @@ export default function Hero() {
             letterSpacing: "0.14em",
             textTransform: "uppercase",
             color: "var(--color-accent)",
-            marginBottom: "clamp(1.5rem, 3vw, 2.5rem)",
+            marginBottom: "1rem",
+            marginInline: "auto",
             textAlign: "center",
           }}
         >
