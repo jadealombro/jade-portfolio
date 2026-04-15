@@ -134,7 +134,7 @@ export default function Hero() {
             marginBottom: "clamp(1.5rem, 3vw, 2.5rem)",
           }}
         >
-          A freelance developer who builds websites that work.
+          Hi, I&apos;m Jade.
         </motion.p>
 
         {/* Display headline */}
