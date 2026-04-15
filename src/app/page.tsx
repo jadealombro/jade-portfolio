@@ -3,6 +3,7 @@ import Hero from "@/components/home/Hero";
 import Intro from "@/components/home/Intro";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import ServicesSnapshot from "@/components/home/ServicesSnapshot";
+import WhyWordPress from "@/components/home/WhyWordPress";
 import HowJadeWorks from "@/components/home/HowJadeWorks";
 import Testimonials from "@/components/home/Testimonials";
 import ProcessPreview from "@/components/home/ProcessPreview";
@@ -27,6 +28,7 @@ export default function HomePage() {
       <Intro />
       <FeaturedProjects />
       <ServicesSnapshot />
+      <WhyWordPress />
       <HowJadeWorks />
       <Testimonials />
       <ProcessPreview />

@@ -97,9 +97,9 @@ export default function Hero() {
 
         {/* Display headline */}
         <div style={{ marginBottom: "clamp(2rem, 4vw, 3.5rem)" }}>
-          <HeroLine delay={0.18}>Custom WordPress</HeroLine>
-          <HeroLine delay={0.3}>websites</HeroLine>
-          <HeroLine delay={0.42} outlined>for business.</HeroLine>
+          <HeroLine delay={0.18}>Built for your</HeroLine>
+          <HeroLine delay={0.3}>business.</HeroLine>
+          <HeroLine delay={0.42} outlined>Not a template.</HeroLine>
         </div>
 
         {/* Supporting copy */}
@@ -115,7 +115,7 @@ export default function Hero() {
             maxWidth: "44ch",
           }}
         >
-          I&apos;m Jade Alombro. I build custom business websites with WordPress — reliable, maintainable, and built around the way your business actually works.
+          I&apos;m Jade Alombro — a freelance web developer specializing in WordPress. I build custom websites that fit your business, not the other way around.
         </motion.p>
 
         {/* CTAs */}
