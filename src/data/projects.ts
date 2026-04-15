@@ -26,7 +26,7 @@ export const projects: Project[] = [
       "Media credentials (Today Show, NBC, ET) integrated to build trust early",
       "Optimized for local search in the Century City / Los Angeles area",
     ],
-    images: ["/images/projects/lou-shapiro.jpg"],
+    images: ["/images/projects/lou-shapiro.webp"],
     liveUrl: "https://loushapiro.com/",
   },
   {
