@@ -7,9 +7,9 @@ import Link from "next/link";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const rotatingPhrases = [
-  "gets you found.",
-  "brings in clients.",
-  "builds trust fast.",
+  "earns trust.",
+  "brings more clients.",
+  "grows with you.",
 ];
 
 function HeroLine({
@@ -75,7 +75,7 @@ export default function Hero() {
 
   useEffect(() => {
     // Show first phrase right after the headline finishes animating in
-    const show = setTimeout(() => setPhraseVisible(true), 200);
+    const show = setTimeout(() => setPhraseVisible(true), 1400);
     return () => clearTimeout(show);
   }, []);
 
@@ -135,12 +135,13 @@ export default function Hero() {
             marginBottom: "clamp(1.5rem, 3vw, 2.5rem)",
           }}
         >
-          Hi! I&apos;m Jade.
+          For businesses that need more than a template.
         </motion.p>
 
         {/* Display headline */}
         <div style={{ marginBottom: "clamp(2rem, 4vw, 3.5rem)" }}>
-          <HeroLine delay={0.1}>Imagine your website</HeroLine>
+          <HeroLine delay={0.1}>Imagine a</HeroLine>
+          <HeroLine delay={0.3}>website that</HeroLine>
 
           {/* Rotating line — min-height holds space for one line */}
           <div
@@ -175,7 +176,7 @@ export default function Hero() {
             maxWidth: "44ch",
           }}
         >
-          I&apos;m Jade Alombro — a freelance web developer specializing in WordPress. I build custom websites that fit your business, not the other way around.
+          I&apos;m Jade Alombro, a Montreal-based developer with over a decade of client work. I build custom WordPress websites and WooCommerce solutions that fit your business — not the other way around.
         </motion.p>
 
         {/* CTAs */}
@@ -201,7 +202,7 @@ export default function Hero() {
               letterSpacing: "-0.01em",
             }}
           >
-            Let&apos;s work together
+            Start a project
           </Link>
           <Link
             href="/projects"
