@@ -144,10 +144,9 @@ export default function ProcessPreview() {
       </div>
 
       <style>{`
-        @media (max-width: 700px) {
+        @media (max-width: 768px) {
           .process-steps {
-            grid-template-columns: repeat(4, minmax(120px, 1fr)) !important;
-            overflow-x: auto;
+            grid-template-columns: repeat(3, 1fr) !important;
           }
         }
       `}</style>
