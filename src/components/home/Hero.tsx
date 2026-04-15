@@ -7,12 +7,11 @@ import Link from "next/link";
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const rotatingPhrases = [
-  "is built the right way.",
-  "helps your business.",
-  "you can be proud to share.",
+  "gets results.",
+  "works for you.",
+  "you'll be proud of.",
 ];
 
-/* Each line clips upward independently */
 function HeroLine({
   children,
   delay,
@@ -43,11 +42,37 @@ function HeroLine({
   );
 }
 
+function RotatingPhrase({ phrase, visible }: { phrase: string; visible: boolean }) {
+  const words = phrase.split(" ");
+  return (
+    <AnimatePresence mode="wait">
+      {visible && (
+        <motion.span
+          key={phrase}
+          exit={{ opacity: 0, transition: { duration: 0.25 } }}
+          style={{ display: "block" }}
+        >
+          {words.map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1, duration: 0.45, ease }}
+              style={{ display: "inline-block", marginRight: "0.25em" }}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </motion.span>
+      )}
+    </AnimatePresence>
+  );
+}
+
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [started, setStarted] = useState(false);
 
-  // Wait for the initial headline animation to finish, then start cycling
   useEffect(() => {
     const start = setTimeout(() => setStarted(true), 2200);
     return () => clearTimeout(start);
@@ -57,7 +82,7 @@ export default function Hero() {
     if (!started) return;
     const interval = setInterval(() => {
       setIndex((i) => (i + 1) % rotatingPhrases.length);
-    }, 2800);
+    }, 3000);
     return () => clearInterval(interval);
   }, [started]);
 
@@ -76,7 +101,7 @@ export default function Hero() {
         textAlign: "center",
       }}
     >
-      {/* Atmospheric glow — centred behind text */}
+      {/* Atmospheric glow */}
       <div
         aria-hidden="true"
         style={{
@@ -89,16 +114,12 @@ export default function Hero() {
           maxWidth: "900px",
           maxHeight: "900px",
           borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(61,90,76,0.18) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(61,90,76,0.18) 0%, transparent 65%)",
           pointerEvents: "none",
         }}
       />
 
-      <div
-        className="container-site"
-        style={{ position: "relative", zIndex: 1, width: "100%" }}
-      >
+      <div className="container-site" style={{ position: "relative", zIndex: 1, width: "100%" }}>
         {/* Eyebrow */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -120,39 +141,23 @@ export default function Hero() {
         <div style={{ marginBottom: "clamp(2rem, 4vw, 3.5rem)" }}>
           <HeroLine delay={0.18}>Your website that</HeroLine>
 
-          {/* Rotating line — fixed height so layout doesn't shift */}
+          {/* Rotating line — min-height holds space for one line */}
           <div
             style={{
-              overflow: "hidden",
-              lineHeight: 0,
-              position: "relative",
-              height: "clamp(3.45rem, 9.66vw, 9.2rem)",
+              minHeight: "clamp(3.45rem, 9.66vw, 9.2rem)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontFamily: "var(--font-display), Georgia, serif",
+              fontSize: "clamp(3.75rem, 10.5vw, 10rem)",
+              fontWeight: 500,
+              lineHeight: 0.92,
+              letterSpacing: "-0.01em",
+              color: "var(--color-accent)",
+              paddingBottom: "0.12em",
             }}
           >
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={index}
-                initial={{ y: "105%", opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: "-105%", opacity: 0 }}
-                transition={{ duration: 0.6, ease }}
-                style={{
-                  display: "block",
-                  position: "absolute",
-                  inset: 0,
-                  fontFamily: "var(--font-display), Georgia, serif",
-                  fontSize: "clamp(3.75rem, 10.5vw, 10rem)",
-                  fontWeight: 500,
-                  lineHeight: 0.92,
-                  letterSpacing: "-0.01em",
-                  color: "var(--color-accent)",
-                  paddingBottom: "0.12em",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {rotatingPhrases[index]}
-              </motion.span>
-            </AnimatePresence>
+            <RotatingPhrase phrase={rotatingPhrases[index]} visible={started} />
           </div>
         </div>
 
@@ -177,12 +182,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.78, ease }}
-          style={{
-            display: "flex",
-            gap: "1rem",
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
+          style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}
         >
           <Link
             href="/contact"
@@ -223,7 +223,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator — bottom right */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -264,11 +264,7 @@ export default function Hero() {
           <motion.div
             animate={{ y: ["-100%", "100%"] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-            style={{
-              position: "absolute",
-              inset: 0,
-              backgroundColor: "var(--color-accent)",
-            }}
+            style={{ position: "absolute", inset: 0, backgroundColor: "var(--color-accent)" }}
           />
         </motion.div>
       </motion.div>
