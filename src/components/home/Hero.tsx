@@ -99,7 +99,7 @@ export default function Hero() {
         <div style={{ marginBottom: "clamp(2rem, 4vw, 3.5rem)" }}>
           <HeroLine delay={0.18}>Built for your</HeroLine>
           <HeroLine delay={0.3}>business.</HeroLine>
-          <HeroLine delay={0.42} outlined>Not a template.</HeroLine>
+          <HeroLine delay={0.42} outlined>No templates.</HeroLine>
         </div>
 
         {/* Supporting copy */}
