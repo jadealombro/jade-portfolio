@@ -75,7 +75,7 @@ export default function Hero() {
 
   useEffect(() => {
     // Show first phrase right after the headline finishes animating in
-    const show = setTimeout(() => setPhraseVisible(true), 1300);
+    const show = setTimeout(() => setPhraseVisible(true), 200);
     return () => clearTimeout(show);
   }, []);
 
@@ -140,7 +140,7 @@ export default function Hero() {
 
         {/* Display headline */}
         <div style={{ marginBottom: "clamp(2rem, 4vw, 3.5rem)" }}>
-          <HeroLine delay={0.18}>Your website that</HeroLine>
+          <HeroLine delay={0.1}>Your website that</HeroLine>
 
           {/* Rotating line — min-height holds space for one line */}
           <div
