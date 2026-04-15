@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildMetadata({
   title: "About",
   description:
-    "Learn about Jade Alombro — a WordPress developer focused on custom business websites, clear communication, and practical, maintainable builds.",
+    "Jade Alombro is a WordPress developer based in Montreal with over a decade of experience building custom websites for small businesses, ecommerce brands, and law firms.",
   path: "/about",
 });
 
@@ -62,30 +62,47 @@ export default function AboutPage() {
                 margin: "0 0 1.75rem",
               }}
             >
-              WordPress developer focused on practical, well-built websites
+              WordPress developer with over a decade of real client work
             </h1>
-            <p style={{ fontSize: "clamp(1rem, 1.4vw, 1.125rem)", lineHeight: 1.65, color: "var(--color-ink-secondary)", maxWidth: "44ch", marginBottom: "2.5rem", margin: "0 0 2.5rem" }}>
-              I&apos;m Jade Alombro. I build custom WordPress websites and WooCommerce solutions for businesses that need something reliable, maintainable, and tailored to the way they actually work.
+            <p style={{ fontSize: "clamp(1rem, 1.4vw, 1.125rem)", lineHeight: 1.65, color: "var(--color-ink-secondary)", maxWidth: "44ch", margin: "0 0 2.5rem" }}>
+              I&apos;m Jade Alombro — based in Montreal, building custom WordPress websites and WooCommerce solutions for businesses that need something reliable, well-built, and actually maintained.
             </p>
             <Button href="/contact" size="lg">Start a project</Button>
           </MotionReveal>
         </div>
       </header>
 
-      {/* What I do */}
+      {/* Background */}
       <section style={{ paddingBlock: "clamp(5rem, 10vw, 9rem)", borderBottom: "1px solid var(--color-border)" }}>
         <div className="container-site">
           <MotionReveal>
             <div style={{ maxWidth: "680px" }}>
-              <SectionHeading label="Specialization" heading="What I do" />
+              <SectionHeading label="Background" heading="How I got here" />
               <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: "var(--color-ink-secondary)", marginBottom: "1.25rem" }}>
-                WordPress is the core of my work. I build custom business websites that go beyond generic templates — sites with thoughtful structure, clean implementation, and the flexibility to grow alongside the business that uses them.
+                I studied computer science and first got into CMS development through Joomla. After graduating, I landed a job where the team used WordPress — and it stuck. That was 2011. I&apos;ve been working in WordPress ever since, across a range of clients, project types, and technical challenges.
               </p>
               <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: "var(--color-ink-secondary)", marginBottom: "1.25rem" }}>
-                I also build and improve WooCommerce stores, develop custom functionality and plugins, set up API integrations, and provide ongoing maintenance and support for sites after launch.
+                Over the years I&apos;ve worked with small businesses, ecommerce brands, and law firms — clients who needed more than a template, and who wanted someone who could understand what their site actually needed to do.
               </p>
               <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: "var(--color-ink-secondary)", margin: 0 }}>
-                WordPress is my specialty, but it&apos;s not the only tool in my kit. If a project calls for something beyond WordPress, I&apos;ll say so — and I can help evaluate what the right approach looks like.
+                Today I take on a small number of projects at a time — a mix of new builds, WooCommerce work, and ongoing support for existing clients. I&apos;d rather do fewer things well than spread too thin.
+              </p>
+            </div>
+          </MotionReveal>
+        </div>
+      </section>
+
+      {/* Who I work with */}
+      <section style={{ paddingBlock: "clamp(5rem, 10vw, 9rem)", borderBottom: "1px solid var(--color-border)" }}>
+        <div className="container-site">
+          <MotionReveal>
+            <div style={{ maxWidth: "680px" }}>
+              <SectionHeading label="Clients" heading="Who I work with" />
+              <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: "var(--color-ink-secondary)", marginBottom: "1.25rem" }}>
+                Most of my clients are small to mid-sized businesses — law firms that need a professional, trustworthy presence; ecommerce brands that need a WooCommerce store that&apos;s actually usable; and service businesses that need a site that works hard without being difficult to maintain.
+              </p>
+              <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: "var(--color-ink-secondary)", margin: 0 }}>
+                What they tend to have in common: they know what their business needs, they want a developer who listens, and they don&apos;t want to manage a complicated back-and-forth to get there.
               </p>
             </div>
           </MotionReveal>
@@ -171,12 +188,15 @@ export default function AboutPage() {
         <div className="container-site">
           <MotionReveal>
             <div style={{ maxWidth: "640px" }}>
-              <SectionHeading label="Workflow" heading="A modern workflow, used thoughtfully" />
+              <SectionHeading label="Workflow" heading="On using AI tools" />
               <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: "var(--color-ink-secondary)", marginBottom: "1.25rem" }}>
-                I use AI tools where they genuinely help — for exploring approaches, working through problems faster, and improving certain parts of the development process. It&apos;s a useful part of a modern workflow when applied with judgment.
+                I use AI tools as part of my workflow, and I want to be straightforward about that. They&apos;re genuinely useful — for exploring approaches, moving faster on certain tasks, catching things I might have missed, and working through problems more efficiently. Used well, they raise the quality and pace of the work.
+              </p>
+              <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: "var(--color-ink-secondary)", marginBottom: "1.25rem" }}>
+                But AI doesn&apos;t replace the judgment that comes from building real projects over many years. It doesn&apos;t know your business, understand your users, or make the decisions that determine whether a site is actually good. Every architectural choice, implementation decision, and quality call is still made by me.
               </p>
               <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: "var(--color-ink-secondary)", margin: 0 }}>
-                AI doesn&apos;t replace careful implementation, quality decisions, or the practical knowledge that comes from building real projects. Every decision that goes into the site is still made by me, with long-term maintainability and the client&apos;s actual needs in mind.
+                I think the honest position is this: AI is a capable tool in the hands of someone who knows what they&apos;re doing, and a liability in the hands of someone who doesn&apos;t. The craft still matters. The experience still matters. The tools just move things forward faster when the foundation is solid.
               </p>
             </div>
           </MotionReveal>
