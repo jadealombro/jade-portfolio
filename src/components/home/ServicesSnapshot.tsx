@@ -26,6 +26,12 @@ const services = [
     description:
       "Managed WordPress hosting with site care included — updates, backups, and minor upkeep on a yearly plan.",
   },
+  {
+    title: "Technical SEO",
+    href: "/services/technical-seo",
+    description:
+      "Semantic markup, metadata, Core Web Vitals, and crawlability — built in from the start or audited and fixed on existing sites.",
+  },
 ];
 
 export default function ServicesSnapshot() {

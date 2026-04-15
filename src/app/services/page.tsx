@@ -65,6 +65,19 @@ const mainServices = [
       "Uptime monitoring",
     ],
   },
+  {
+    title: "Technical SEO",
+    href: "/services/technical-seo",
+    description:
+      "The foundational SEO work that makes your site readable and rankable — semantic HTML, proper metadata, Core Web Vitals, sitemaps, schema markup, and more. Built into every new site I build, or applied as a standalone audit and fix.",
+    details: [
+      "Semantic HTML structure and heading hierarchy",
+      "Meta titles, descriptions, and Open Graph tags",
+      "XML sitemap and robots.txt configuration",
+      "Schema markup for business and services",
+      "Page speed and Core Web Vitals improvements",
+    ],
+  },
 ];
 
 const supporting = [
