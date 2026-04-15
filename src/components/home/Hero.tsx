@@ -15,9 +15,11 @@ const rotatingPhrases = [
 function HeroLine({
   children,
   delay,
+  extraPadding = false,
 }: {
   children: React.ReactNode;
   delay: number;
+  extraPadding?: boolean;
 }) {
   return (
     <div style={{ overflow: "hidden", lineHeight: 0 }}>
@@ -33,7 +35,7 @@ function HeroLine({
           lineHeight: 0.92,
           letterSpacing: "-0.01em",
           color: "var(--color-ink)",
-          paddingBottom: "0.12em",
+          paddingBottom: extraPadding ? "0.22em" : "0.12em",
         }}
       >
         {children}
@@ -123,9 +125,9 @@ export default function Hero() {
       <div className="container-site" style={{ position: "relative", zIndex: 1, width: "100%" }}>
         {/* Eyebrow */}
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: -14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.05, ease }}
+          transition={{ duration: 0.7, delay: 0.05, ease }}
           style={{
             fontSize: "0.75rem",
             fontWeight: 600,
@@ -133,6 +135,7 @@ export default function Hero() {
             textTransform: "uppercase",
             color: "var(--color-accent)",
             marginBottom: "clamp(1.5rem, 3vw, 2.5rem)",
+            textAlign: "center",
           }}
         >
           For businesses that need more than a template.
@@ -140,7 +143,7 @@ export default function Hero() {
 
         {/* Display headline */}
         <div style={{ marginBottom: "clamp(2rem, 4vw, 3.5rem)" }}>
-          <HeroLine delay={0.1}>Imagine a</HeroLine>
+          <HeroLine delay={0.1} extraPadding>Imagine a</HeroLine>
           <HeroLine delay={0.3}>website that</HeroLine>
 
           {/* Rotating line — min-height holds space for one line */}
