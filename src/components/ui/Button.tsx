@@ -4,7 +4,7 @@ import { CSSProperties } from "react";
 interface ButtonProps {
   href?: string;
   onClick?: () => void;
-  variant?: "primary" | "secondary" | "ghost" | "amber";
+  variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
   className?: string;
@@ -29,8 +29,8 @@ const base: CSSProperties = {
 
 const variants: Record<string, CSSProperties> = {
   primary: {
-    backgroundColor: "var(--color-accent)",
-    color: "var(--color-background)",
+    backgroundColor: "var(--color-button)",
+    color: "var(--color-ink)",
   },
   secondary: {
     backgroundColor: "transparent",
@@ -41,10 +41,6 @@ const variants: Record<string, CSSProperties> = {
     backgroundColor: "transparent",
     color: "var(--color-ink-secondary)",
     border: "none",
-  },
-  amber: {
-    backgroundColor: "var(--color-amber)",
-    color: "var(--color-ink)",
   },
 };
 

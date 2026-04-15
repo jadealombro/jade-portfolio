@@ -15,10 +15,9 @@
   --color-accent-light: #EEF3F0;
   --color-accent-hover: #2E4438;
 
-  /* Amber — warm gold for primary CTAs */
-  --color-amber:        #C08A20;
-  --color-amber-light:  #FBF3E0;
-  --color-amber-hover:  #A87218;
+  /* Button — muted sage jade for CTAs */
+  --color-button:       #8CAF97;
+  --color-button-hover: #7A9E87;
 
   /* Typography — --font-sans (Rubik) and --font-display (EB Garamond) are set by next/font */
 

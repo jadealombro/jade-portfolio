@@ -138,7 +138,7 @@ export default function Hero() {
               fontSize: "0.9375rem",
               fontWeight: 600,
               color: "var(--color-ink)",
-              backgroundColor: "var(--color-amber)",
+              backgroundColor: "var(--color-button)",
               textDecoration: "none",
               padding: "0.75rem 1.75rem",
               borderRadius: "9999px",

@@ -70,7 +70,7 @@ export default function Footer() {
                   fontSize: "0.875rem",
                   fontWeight: 500,
                   color: "var(--color-ink)",
-                  backgroundColor: "var(--color-amber)",
+                  backgroundColor: "var(--color-button)",
                   textDecoration: "none",
                   padding: "0.625rem 1.25rem",
                   borderRadius: "9999px",

@@ -93,7 +93,7 @@ export default function FinalCTA() {
 
         <MotionReveal delay={0.26}>
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-            <Button href="/contact" variant="amber" size="lg">Start a project</Button>
+            <Button href="/contact" size="lg">Start a project</Button>
             <Button href="/projects" variant="secondary" size="lg">View projects</Button>
           </div>
         </MotionReveal>
