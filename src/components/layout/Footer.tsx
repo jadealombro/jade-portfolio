@@ -73,7 +73,7 @@ export default function Footer() {
                   backgroundColor: "var(--color-ink)",
                   textDecoration: "none",
                   padding: "0.625rem 1.25rem",
-                  borderRadius: "var(--radius-sm)",
+                  borderRadius: "9999px",
                   display: "inline-block",
                 }}
               >

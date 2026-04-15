@@ -24,7 +24,7 @@ const base: CSSProperties = {
   border: "none",
   cursor: "pointer",
   transition: "background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease",
-  borderRadius: "var(--radius-sm)",
+  borderRadius: "9999px",
 };
 
 const variants: Record<string, CSSProperties> = {

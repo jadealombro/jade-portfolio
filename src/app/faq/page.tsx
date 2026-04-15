@@ -83,7 +83,7 @@ export default function FaqPage() {
                 backgroundColor: "var(--color-ink)",
                 textDecoration: "none",
                 padding: "0.75rem 1.75rem",
-                borderRadius: "var(--radius-sm)",
+                borderRadius: "9999px",
                 letterSpacing: "-0.01em",
               }}
             >

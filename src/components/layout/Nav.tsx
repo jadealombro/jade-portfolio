@@ -107,7 +107,7 @@ export default function Nav() {
                   backgroundColor: "var(--color-ink)",
                   textDecoration: "none",
                   padding: "0.5rem 1.125rem",
-                  borderRadius: "var(--radius-sm)",
+                  borderRadius: "9999px",
                   letterSpacing: "0.01em",
                   transition: "background-color 0.2s ease",
                 }}
@@ -228,7 +228,7 @@ export default function Nav() {
                       backgroundColor: "var(--color-ink)",
                       textDecoration: "none",
                       padding: "0.875rem 2rem",
-                      borderRadius: "var(--radius-sm)",
+                      borderRadius: "9999px",
                       letterSpacing: "-0.01em",
                     }}
                   >
