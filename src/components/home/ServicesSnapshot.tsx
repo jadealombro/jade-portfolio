@@ -20,6 +20,12 @@ const services = [
     description:
       "Ongoing support for sites that need updates, improvements, and reliable long-term care.",
   },
+  {
+    title: "Hosting",
+    href: "/services/hosting",
+    description:
+      "Managed WordPress hosting with site care included — updates, backups, and minor upkeep on a yearly plan.",
+  },
 ];
 
 export default function ServicesSnapshot() {

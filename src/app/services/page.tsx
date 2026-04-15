@@ -52,6 +52,19 @@ const mainServices = [
       "Content and configuration updates",
     ],
   },
+  {
+    title: "Hosting",
+    href: "/services/hosting",
+    description:
+      "Managed WordPress hosting on a yearly plan — with plugin updates, regular backups, and minor site upkeep included so the site stays in good shape without you having to think about it.",
+    details: [
+      "Managed WordPress hosting",
+      "Plugin, theme, and core updates",
+      "Regular site backups",
+      "Publishing content you provide",
+      "Uptime monitoring",
+    ],
+  },
 ];
 
 const supporting = [
