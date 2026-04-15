@@ -1,19 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+const rotatingPhrases = [
+  "is built the right way.",
+  "helps your business.",
+  "you can be proud to share.",
+];
 
 /* Each line clips upward independently */
 function HeroLine({
   children,
   delay,
-  outlined = false,
 }: {
   children: React.ReactNode;
   delay: number;
-  outlined?: boolean;
 }) {
   return (
     <div style={{ overflow: "hidden", lineHeight: 0 }}>
@@ -28,8 +33,7 @@ function HeroLine({
           fontWeight: 500,
           lineHeight: 0.92,
           letterSpacing: "-0.01em",
-          color: outlined ? "transparent" : "var(--color-ink)",
-          WebkitTextStroke: outlined ? "1.5px var(--color-ink)" : undefined,
+          color: "var(--color-ink)",
           paddingBottom: "0.12em",
         }}
       >
@@ -40,6 +44,23 @@ function HeroLine({
 }
 
 export default function Hero() {
+  const [index, setIndex] = useState(0);
+  const [started, setStarted] = useState(false);
+
+  // Wait for the initial headline animation to finish, then start cycling
+  useEffect(() => {
+    const start = setTimeout(() => setStarted(true), 2200);
+    return () => clearTimeout(start);
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+    const interval = setInterval(() => {
+      setIndex((i) => (i + 1) % rotatingPhrases.length);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, [started]);
+
   return (
     <section
       style={{
@@ -92,14 +113,47 @@ export default function Hero() {
             marginBottom: "clamp(1.5rem, 3vw, 2.5rem)",
           }}
         >
-          WordPress Developer
+          Freelance Web Developer
         </motion.p>
 
         {/* Display headline */}
         <div style={{ marginBottom: "clamp(2rem, 4vw, 3.5rem)" }}>
-          <HeroLine delay={0.18}>Built for your</HeroLine>
-          <HeroLine delay={0.3}>business.</HeroLine>
-          <HeroLine delay={0.42} outlined>No templates.</HeroLine>
+          <HeroLine delay={0.18}>Your website that</HeroLine>
+
+          {/* Rotating line — fixed height so layout doesn't shift */}
+          <div
+            style={{
+              overflow: "hidden",
+              lineHeight: 0,
+              position: "relative",
+              height: "clamp(3.45rem, 9.66vw, 9.2rem)",
+            }}
+          >
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={index}
+                initial={{ y: "105%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: "-105%", opacity: 0 }}
+                transition={{ duration: 0.6, ease }}
+                style={{
+                  display: "block",
+                  position: "absolute",
+                  inset: 0,
+                  fontFamily: "var(--font-display), Georgia, serif",
+                  fontSize: "clamp(3.75rem, 10.5vw, 10rem)",
+                  fontWeight: 500,
+                  lineHeight: 0.92,
+                  letterSpacing: "-0.01em",
+                  color: "var(--color-accent)",
+                  paddingBottom: "0.12em",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {rotatingPhrases[index]}
+              </motion.span>
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Supporting copy */}
