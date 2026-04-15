@@ -100,16 +100,16 @@ export default function Nav() {
               })}
               <Link
                 href="/contact"
+                className="jade-cta-btn"
                 style={{
                   fontSize: "0.875rem",
-                  fontWeight: 500,
-                  color: "var(--color-ink)",
+                  fontWeight: 600,
+                  color: "var(--color-background)",
                   backgroundColor: "var(--color-button)",
                   textDecoration: "none",
                   padding: "0.5rem 1.125rem",
                   borderRadius: "9999px",
                   letterSpacing: "0.01em",
-                  transition: "background-color 0.2s ease",
                 }}
               >
                 Start a project
@@ -219,12 +219,13 @@ export default function Nav() {
                 >
                   <Link
                     href="/contact"
+                    className="jade-cta-btn"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
                       fontSize: "0.9375rem",
                       fontWeight: 600,
-                      color: "var(--color-ink)",
+                      color: "var(--color-background)",
                       backgroundColor: "var(--color-button)",
                       textDecoration: "none",
                       padding: "0.875rem 2rem",
@@ -251,6 +252,14 @@ export default function Nav() {
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
           .mobile-menu-btn { display: flex !important; }
+        }
+        .jade-cta-btn {
+          transition: background-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .jade-cta-btn:hover {
+          background-color: var(--color-button-hover) !important;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(61, 90, 76, 0.28);
         }
       `}</style>
     </>

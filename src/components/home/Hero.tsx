@@ -132,12 +132,13 @@ export default function Hero() {
         >
           <Link
             href="/contact"
+            className="jade-cta-btn"
             style={{
               display: "inline-flex",
               alignItems: "center",
               fontSize: "0.9375rem",
               fontWeight: 600,
-              color: "var(--color-ink)",
+              color: "var(--color-background)",
               backgroundColor: "var(--color-button)",
               textDecoration: "none",
               padding: "0.75rem 1.75rem",
@@ -221,6 +222,14 @@ export default function Hero() {
       <style>{`
         @media (max-width: 580px) {
           .scroll-hint { display: none; }
+        }
+        .jade-cta-btn {
+          transition: background-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .jade-cta-btn:hover {
+          background-color: var(--color-button-hover) !important;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(61, 90, 76, 0.28);
         }
       `}</style>
     </section>

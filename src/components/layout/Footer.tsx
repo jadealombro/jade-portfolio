@@ -66,10 +66,11 @@ export default function Footer() {
             <div style={{ marginTop: "1.75rem" }}>
               <Link
                 href="/contact"
+                className="jade-cta-btn"
                 style={{
                   fontSize: "0.875rem",
-                  fontWeight: 500,
-                  color: "var(--color-ink)",
+                  fontWeight: 600,
+                  color: "var(--color-background)",
                   backgroundColor: "var(--color-button)",
                   textDecoration: "none",
                   padding: "0.625rem 1.25rem",
@@ -159,6 +160,14 @@ export default function Footer() {
           .footer-grid {
             grid-template-columns: 2fr 1fr 1fr !important;
           }
+        }
+        .jade-cta-btn {
+          transition: background-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .jade-cta-btn:hover {
+          background-color: var(--color-button-hover) !important;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(61, 90, 76, 0.28);
         }
       `}</style>
     </footer>

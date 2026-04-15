@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import { CSSProperties } from "react";
+import { useState, CSSProperties } from "react";
 
 interface ButtonProps {
   href?: string;
@@ -18,19 +20,19 @@ const base: CSSProperties = {
   alignItems: "center",
   justifyContent: "center",
   fontFamily: "var(--font-sans)",
-  fontWeight: 500,
+  fontWeight: 600,
   letterSpacing: "0.01em",
   textDecoration: "none",
   border: "none",
   cursor: "pointer",
-  transition: "background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease",
+  transition: "background-color 0.22s ease, color 0.22s ease, border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease",
   borderRadius: "9999px",
 };
 
 const variants: Record<string, CSSProperties> = {
   primary: {
     backgroundColor: "var(--color-button)",
-    color: "var(--color-ink)",
+    color: "var(--color-background)",
   },
   secondary: {
     backgroundColor: "transparent",
@@ -41,6 +43,22 @@ const variants: Record<string, CSSProperties> = {
     backgroundColor: "transparent",
     color: "var(--color-ink-secondary)",
     border: "none",
+  },
+};
+
+const hoverStyles: Record<string, CSSProperties> = {
+  primary: {
+    backgroundColor: "var(--color-button-hover)",
+    transform: "translateY(-2px)",
+    boxShadow: "0 8px 24px rgba(61, 90, 76, 0.28)",
+  },
+  secondary: {
+    borderColor: "var(--color-ink-secondary)",
+    transform: "translateY(-2px)",
+    boxShadow: "0 4px 16px rgba(17, 17, 16, 0.08)",
+  },
+  ghost: {
+    color: "var(--color-ink)",
   },
 };
 
@@ -60,24 +78,34 @@ export default function Button({
   disabled,
   style,
 }: ButtonProps) {
+  const [hovered, setHovered] = useState(false);
+
   const combinedStyle: CSSProperties = {
     ...base,
     ...variants[variant],
     ...sizes[size],
+    ...(hovered && !disabled ? hoverStyles[variant] : {}),
     ...(disabled ? { opacity: 0.5, cursor: "not-allowed" } : {}),
     ...style,
   };
 
+  const handlers = disabled
+    ? {}
+    : {
+        onMouseEnter: () => setHovered(true),
+        onMouseLeave: () => setHovered(false),
+      };
+
   if (href) {
     return (
-      <Link href={href} style={combinedStyle}>
+      <Link href={href} style={combinedStyle} {...handlers}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} style={combinedStyle}>
+    <button type={type} onClick={onClick} disabled={disabled} style={combinedStyle} {...handlers}>
       {children}
     </button>
   );
